@@ -1,7 +1,7 @@
 
 import React from 'react';
 import FeatureCard from './FeatureCard';
-import { Copy, LineChart, Search, ShoppingCart, Users, PuzzlePiece, Tag } from 'lucide-react';
+import { Copy, LineChart, Search, ShoppingCart, Users, Puzzle, Tag } from 'lucide-react';
 
 const Features = () => {
   const features = [
@@ -33,7 +33,7 @@ const Features = () => {
     {
       title: 'Compatibilidade Autoparts',
       description: 'Sistema avançado de verificação de compatibilidade para o setor de autopeças.',
-      icon: PuzzlePiece
+      icon: Puzzle
     },
     {
       title: 'Central de Promoções',
