@@ -1,0 +1,126 @@
+
+import React, { useState, useEffect } from 'react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const navItems = [
+    { name: 'Funcionalidades', href: '#features' },
+    { name: 'Preços', href: '#pricing' },
+    { name: 'Sobre', href: '#about' },
+    { name: 'Contato', href: '#contact' },
+  ];
+
+  return (
+    <nav 
+      className={cn(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        isScrolled ? 'glassmorphism py-3' : 'bg-transparent py-5'
+      )}
+    >
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center">
+            <a href="/" className="flex items-center">
+              <span className="text-xl font-bold text-primary-blue">Anye</span>
+            </a>
+          </div>
+
+          {/* Desktop navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+          <div className="hidden md:flex items-center space-x-4">
+            <a href="#login" className="text-primary-blue hover:text-primary-light transition-colors duration-300">
+              Login
+            </a>
+            <a href="#signup" className="btn-accent">
+              Começar Agora
+            </a>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button 
+              onClick={toggleMenu}
+              className="text-neutral-dark hover:text-primary-blue transition-colors p-2"
+              aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile navigation */}
+        <div 
+          className={cn(
+            'md:hidden overflow-hidden transition-all duration-300 ease-in-out',
+            isOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          )}
+        >
+          <div className="flex flex-col space-y-4 py-4">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
+            <div className="flex flex-col space-y-3 px-4 pt-4 border-t border-neutral-light">
+              <a 
+                href="#login" 
+                className="text-primary-blue hover:text-primary-light transition-colors py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Login
+              </a>
+              <a 
+                href="#signup" 
+                className="btn-accent text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Começar Agora
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
