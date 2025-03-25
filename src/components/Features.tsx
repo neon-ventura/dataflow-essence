@@ -16,6 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
 import SavingsCalculator from '@/components/calculator/SavingsCalculator';
+import { Link } from 'react-router-dom';
 
 const Features = () => {
   const benefitGroups = [
@@ -122,7 +123,7 @@ const Features = () => {
           ))}
         </div>
         
-        <div className="mt-20 mb-8">
+        <div className="mt-20 mb-12">
           <h3 className="text-2xl font-bold mb-8 text-center">Os Benefícios que Você Pode Esperar</h3>
           
           {/* Calculator Component */}
@@ -135,6 +136,15 @@ const Features = () => {
           >
             <SavingsCalculator />
           </motion.div>
+        </div>
+        
+        <div className="text-center">
+          <Link to="/features">
+            <Button className="px-8 py-6 text-lg bg-primary-blue hover:bg-primary-light">
+              Ver Todas as Funcionalidades
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

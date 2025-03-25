@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Features from "./pages/Features";
 import NotFound from "./pages/NotFound";
 import AvantPro from "./pages/competitors/AvantPro";
 import Nubimetrics from "./pages/competitors/Nubimetrics";
@@ -22,6 +23,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/features" element={<Features />} />
           <Route path="/anye-vs-avant-pro" element={<AvantPro />} />
           <Route path="/anye-vs-nubimetrics" element={<Nubimetrics />} />
           <Route path="/anye-vs-mercado-turbo" element={<MercadoTurbo />} />

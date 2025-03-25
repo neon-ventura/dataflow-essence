@@ -9,7 +9,7 @@ const Footer = () => {
     {
       title: 'Produto',
       links: [
-        { name: 'Funcionalidades', href: '#features' },
+        { name: 'Funcionalidades', href: '/features' },
         { name: 'Preços', href: '#pricing' },
         { name: 'Casos de Uso', href: '#cases' },
         { name: 'Integrações', href: '#integrations' },
@@ -55,15 +55,6 @@ const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2">
-            <div className="mb-6">
-              <a href="/" className="inline-block">
-                <img 
-                  src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
-                  alt="Anye Logo" 
-                  className="h-10" 
-                />
-              </a>
-            </div>
             <p className="text-neutral-dark mb-6 max-w-md">
               Plataforma completa para monitoramento e otimização de performance em marketplaces.
             </p>
@@ -100,36 +91,22 @@ const Footer = () => {
           ))}
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-neutral-light">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8 border-t border-neutral-light">
           <div className="flex items-center">
-            <div className="flex items-center gap-2">
-              <img 
-                src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
-                alt="Anye Logo" 
-                className="h-6" 
-              />
-              <p className="text-neutral-dark text-sm">
-                &copy; {currentYear} Anye. Todos os direitos reservados.
-              </p>
+            <p className="text-neutral-dark text-sm">
+              &copy; {currentYear} Anye. Todos os direitos reservados.
+            </p>
+          </div>
+          
+          <div className="flex md:justify-end">
+            <div className="flex items-start md:items-center space-y-0 md:space-x-6">
+              <a href="mailto:contato@anye.com" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
+                <Mail size={16} className="mr-2" /> contato@anye.com
+              </a>
+              <a href="tel:+551199999999" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
+                <Phone size={16} className="mr-2" /> +55 11 9999-9999
+              </a>
             </div>
-          </div>
-          
-          <div className="flex md:justify-center">
-            <a href="#terms" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm mr-6">
-              Termos de Uso
-            </a>
-            <a href="#privacy" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm">
-              Política de Privacidade
-            </a>
-          </div>
-          
-          <div className="flex flex-col md:flex-row md:justify-end items-start md:items-center space-y-2 md:space-y-0 md:space-x-6">
-            <a href="mailto:contato@anye.com" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
-              <Mail size={16} className="mr-2" /> contato@anye.com
-            </a>
-            <a href="tel:+551199999999" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
-              <Phone size={16} className="mr-2" /> +55 11 9999-9999
-            </a>
           </div>
         </div>
       </div>

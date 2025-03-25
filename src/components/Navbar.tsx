@@ -28,7 +28,7 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: 'Funcionalidades', href: '#features' },
+    { name: 'Funcionalidades', href: '/features' },
     { name: 'Preços', href: '#pricing' },
     { name: 'Comparativos', href: '#compare' },
     { name: 'Blog', href: '#blog' },
@@ -59,13 +59,23 @@ const Navbar = () => {
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1"
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('/') ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1"
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1"
+                >
+                  {item.name}
+                </a>
+              )
             ))}
           </div>
 
@@ -105,14 +115,25 @@ const Navbar = () => {
         >
           <div className="flex flex-col space-y-4 py-4 bg-white rounded-lg shadow-lg">
             {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
+              item.href.startsWith('/') ? (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </a>
+              )
             ))}
             <div className="flex flex-col space-y-3 px-4 pt-4 border-t border-neutral-light">
               <a 
