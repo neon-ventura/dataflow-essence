@@ -15,6 +15,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
+import SavingsCalculator from '@/components/calculator/SavingsCalculator';
 
 const Features = () => {
   const benefitGroups = [
@@ -121,34 +122,49 @@ const Features = () => {
           ))}
         </div>
         
-        <div className="bg-gradient-to-r from-primary-blue/5 to-primary-blue/10 rounded-xl p-8 md:p-12 mt-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Os Benefícios que Você Pode Esperar</h3>
-              <div className="space-y-4">
-                {[
-                  "Aumento de 30% a 70% nas vendas nos primeiros 3 meses",
-                  "Redução média de 45% no tempo gasto com tarefas operacionais",
-                  "Diminuição de até 60% em erros de preços e estoque",
-                  "Crescimento de 25% na margem de lucro por produto",
-                  "Resposta 5x mais rápida ao comportamento do mercado"
-                ].map((benefit, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-600 mt-1" />
-                    <p>{benefit}</p>
-                  </div>
-                ))}
+        <div className="mt-20 mb-8">
+          <h3 className="text-2xl font-bold mb-8 text-center">Os Benefícios que Você Pode Esperar</h3>
+          
+          {/* Calculator Component */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <SavingsCalculator />
+          </motion.div>
+          
+          <div className="bg-gradient-to-r from-primary-blue/5 to-primary-blue/10 rounded-xl p-8 md:p-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">Outros Benefícios Esperados</h3>
+                <div className="space-y-4">
+                  {[
+                    "Aumento de 30% a 70% nas vendas nos primeiros 3 meses",
+                    "Redução média de 45% no tempo gasto com tarefas operacionais",
+                    "Diminuição de até 60% em erros de preços e estoque",
+                    "Crescimento de 25% na margem de lucro por produto",
+                    "Resposta 5x mais rápida ao comportamento do mercado"
+                  ].map((benefit, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 flex-shrink-0 text-green-600 mt-1" />
+                      <p>{benefit}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-            
-            <div className="flex flex-col items-center md:items-end">
-              <p className="text-xl font-medium mb-6 text-center md:text-right">
-                Mais de 1.500 vendedores já transformaram seus negócios com o Anye
-              </p>
-              <Button size="lg" className="bg-primary-blue hover:bg-primary-blue/90">
-                Agende uma Demonstração
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              
+              <div className="flex flex-col items-center md:items-end">
+                <p className="text-xl font-medium mb-6 text-center md:text-right">
+                  Mais de 1.500 vendedores já transformaram seus negócios com o Anye
+                </p>
+                <Button size="lg" className="bg-primary-blue hover:bg-primary-blue/90">
+                  Agende uma Demonstração
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
           </div>
         </div>

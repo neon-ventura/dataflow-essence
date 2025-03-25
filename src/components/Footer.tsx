@@ -56,7 +56,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2">
             <div className="mb-6">
-              <a href="/" className="flex items-center">
+              <a href="/" className="inline-block">
                 <img 
                   src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
                   alt="Anye Logo" 
@@ -100,13 +100,30 @@ const Footer = () => {
           ))}
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-light">
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 mb-4 md:mb-0">
-            <p className="text-neutral-dark text-sm">
-              &copy; {currentYear} Anye. Todos os direitos reservados.
-            </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-neutral-light">
+          <div className="flex items-center">
+            <div className="flex items-center gap-2">
+              <img 
+                src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
+                alt="Anye Logo" 
+                className="h-6" 
+              />
+              <p className="text-neutral-dark text-sm">
+                &copy; {currentYear} Anye. Todos os direitos reservados.
+              </p>
+            </div>
           </div>
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+          
+          <div className="flex md:justify-center">
+            <a href="#terms" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm mr-6">
+              Termos de Uso
+            </a>
+            <a href="#privacy" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm">
+              Política de Privacidade
+            </a>
+          </div>
+          
+          <div className="flex flex-col md:flex-row md:justify-end items-start md:items-center space-y-2 md:space-y-0 md:space-x-6">
             <a href="mailto:contato@anye.com" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
               <Mail size={16} className="mr-2" /> contato@anye.com
             </a>
