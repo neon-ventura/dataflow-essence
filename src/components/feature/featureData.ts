@@ -39,9 +39,9 @@ export const featureSections: FeatureSectionType[] = [
     description: 'Otimize sua cadeia de suprimentos com dados confiáveis e insights valiosos.',
     icon: Users,
     color: 'from-blue-500/20 to-blue-700/20',
-    textColor: 'text-blue-600',
-    borderColor: 'border-blue-200',
-    bgColor: 'bg-blue-50',
+    textColor: 'text-blue-400',
+    borderColor: 'border-blue-500/30',
+    bgColor: 'bg-blue-500/10',
     features: [
       {
         title: 'Painel de Fornecedores',
@@ -62,9 +62,9 @@ export const featureSections: FeatureSectionType[] = [
     description: 'Tome decisões baseadas em dados para compras mais rentáveis e estratégicas.',
     icon: ShoppingCart,
     color: 'from-purple-500/20 to-purple-700/20',
-    textColor: 'text-purple-600',
-    borderColor: 'border-purple-200',
-    bgColor: 'bg-purple-50',
+    textColor: 'text-purple-400',
+    borderColor: 'border-purple-500/30',
+    bgColor: 'bg-purple-500/10',
     features: [
       {
         title: 'Painel de Compras',
@@ -85,9 +85,9 @@ export const featureSections: FeatureSectionType[] = [
     description: 'Soluções especializadas para o setor automotivo com gestão avançada de compatibilidade.',
     icon: Puzzle,
     color: 'from-green-500/20 to-green-700/20',
-    textColor: 'text-green-600', 
-    borderColor: 'border-green-200',
-    bgColor: 'bg-green-50',
+    textColor: 'text-green-400',
+    borderColor: 'border-green-500/30', 
+    bgColor: 'bg-green-500/10',
     features: [
       {
         title: 'Compatibilidade Autoparts',
@@ -108,9 +108,9 @@ export const featureSections: FeatureSectionType[] = [
     description: 'Recursos avançados com IA para impulsionar seu negócio e automatizar tarefas.',
     icon: BrainCircuit,
     color: 'from-amber-500/20 to-amber-700/20',
-    textColor: 'text-amber-600',
-    borderColor: 'border-amber-200',
-    bgColor: 'bg-amber-50',
+    textColor: 'text-amber-400',
+    borderColor: 'border-amber-500/30',
+    bgColor: 'bg-amber-500/10',
     features: [
       {
         title: 'Respostas Automáticas com IA',

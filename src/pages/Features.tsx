@@ -1,11 +1,19 @@
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ArrowRight, ChevronsUp, Sparkles, Plus } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { 
+  ArrowRight, 
+  ChevronRight, 
+  Sparkles, 
+  Check, 
+  ChevronsUp, 
+  Plus, 
+  Play, 
+  MousePointer,
+  Zap
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from "@/components/ui/button";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
@@ -13,193 +21,307 @@ import SavingsCalculator from '@/components/calculator/SavingsCalculator';
 import { featureSections } from '@/components/feature/featureData';
 
 const Features = () => {
-  const [expandedSection, setExpandedSection] = useState<string | null>(featureSections[0].id);
+  const [activeSection, setActiveSection] = useState(featureSections[0].id);
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const [expandedFeature, setExpandedFeature] = useState<string | null>(null);
   
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+  // Reference for scroll animations
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // Find active section data
+  const currentSection = featureSections.find(section => section.id === activeSection);
+  
+  // Toggle feature expansion
+  const toggleFeature = (title: string) => {
+    if (expandedFeature === title) {
+      setExpandedFeature(null);
+    } else {
+      setExpandedFeature(title);
+    }
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-neutral-950 to-neutral-900 text-white">
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-blue-50 to-white">
-          <div className="container mx-auto px-4 md:px-6">
+        <section className="relative pt-32 pb-20 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(37,99,235,0.15),_transparent_50%)]"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(124,58,237,0.15),_transparent_50%)]"></div>
+          
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
             <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeInUpVariants}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="max-w-3xl mx-auto text-center"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Funcionalidades que <span className="text-gradient">Transformam</span> seu Negócio
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 text-sm font-medium text-blue-300 mb-6">
+                <Sparkles size={16} className="text-blue-400" />
+                <span>Funcionalidades Anye</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                Soluções Que Transformam <br/> Seu Negócio
               </h1>
-              <p className="text-lg text-neutral-dark mb-8">
-                Descubra como a Anye pode ajudar você a maximizar seus resultados em marketplaces com ferramentas poderosas e intuitivas.
+              
+              <p className="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto">
+                Descubra como a Anye pode revolucionar sua operação nos marketplaces com ferramentas 
+                intuitivas e poderosas projetadas para o crescimento real.
               </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-none h-12 px-6">
+                  <span>Agendar Demonstração</span>
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                
+                <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 h-12 px-6 gap-2">
+                  <Play size={14} />
+                  <span>Ver em ação</span>
+                </Button>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Vertical Feature Sections */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-4xl mx-auto">
-              <Tabs defaultValue={featureSections[0].id} className="w-full">
-                <TabsList className="flex overflow-x-auto p-1 mb-8 space-x-1 bg-neutral-100 rounded-lg">
-                  {featureSections.map((section) => (
-                    <TabsTrigger 
-                      key={section.id} 
-                      value={section.id}
-                      onClick={() => setExpandedSection(section.id)}
-                      className="flex-shrink-0 data-[state=active]:bg-white data-[state=active]:shadow"
-                    >
-                      <div className="flex items-center gap-2">
-                        <section.icon className={cn("h-4 w-4", section.textColor)} />
-                        <span className="whitespace-nowrap">{section.title}</span>
-                      </div>
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-
-                <div className="space-y-12">
-                  {featureSections.map((section) => (
-                    <TabsContent key={section.id} value={section.id} className="animate-in fade-in-50 duration-300">
-                      <div className="space-y-8">
-                        <motion.div 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="text-center mb-8"
-                        >
-                          <div className={cn("inline-flex rounded-full p-2 mb-4", section.bgColor)}>
-                            <section.icon className={cn("h-6 w-6", section.textColor)} />
-                          </div>
-                          <h2 className={cn("text-3xl font-bold mb-3", section.textColor)}>
-                            {section.title}
-                          </h2>
-                          <p className="text-lg text-neutral-dark max-w-2xl mx-auto">
-                            {section.description}
-                          </p>
-                        </motion.div>
-
-                        <div className="space-y-10">
-                          {section.features.map((feature, index) => (
-                            <motion.div
-                              key={feature.title}
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ duration: 0.5, delay: index * 0.1 }}
-                              className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
+        {/* Interactive Feature Explorer */}
+        <section ref={containerRef} className="py-16 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/50 to-neutral-900 z-0"></div>
+          
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="mb-12 text-center">
+              <h2 className="text-3xl font-bold mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+                  Explore Nossas Soluções
+                </span>
+              </h2>
+              <p className="text-neutral-300 max-w-2xl mx-auto">
+                Selecione uma categoria para explorar as funcionalidades que impulsionam o crescimento do seu negócio
+              </p>
+            </div>
+            
+            {/* Category Navigation */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+              {featureSections.map((section) => (
+                <motion.button
+                  key={section.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setActiveSection(section.id)}
+                  className={cn(
+                    "p-4 rounded-xl backdrop-blur-sm border transition-all duration-300",
+                    "flex flex-col items-center text-center gap-2 h-full",
+                    activeSection === section.id 
+                      ? `border-${section.textColor.replace('text-', '')} bg-${section.textColor.replace('text-', '')}/10` 
+                      : "border-white/10 hover:border-white/20 bg-white/5"
+                  )}
+                >
+                  <div className={cn(
+                    "rounded-full p-3 mb-2",
+                    activeSection === section.id 
+                      ? section.bgColor
+                      : "bg-white/10"
+                  )}>
+                    <section.icon className={cn(
+                      "h-6 w-6",
+                      activeSection === section.id 
+                        ? section.textColor
+                        : "text-white"
+                    )} />
+                  </div>
+                  <h3 className="text-sm font-medium">
+                    {section.title}
+                  </h3>
+                </motion.button>
+              ))}
+            </div>
+            
+            {/* Active Section Features */}
+            {currentSection && (
+              <div>
+                <motion.div
+                  key={currentSection.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="mb-10 text-center"
+                >
+                  <h3 className={cn("text-2xl font-bold mb-3", currentSection.textColor)}>
+                    {currentSection.title}
+                  </h3>
+                  <p className="text-neutral-300 max-w-2xl mx-auto">
+                    {currentSection.description}
+                  </p>
+                </motion.div>
+                
+                <div className="space-y-8">
+                  <AnimatePresence mode="wait">
+                    {currentSection.features.map((feature, index) => (
+                      <motion.div
+                        key={feature.title}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        className={cn(
+                          "relative rounded-xl overflow-hidden border bg-black/20 backdrop-blur-sm",
+                          expandedFeature === feature.title ? "border-white/20" : "border-white/10"
+                        )}
+                        onMouseEnter={() => setHoveredFeature(index)}
+                        onMouseLeave={() => setHoveredFeature(null)}
+                      >
+                        <div className="flex flex-col md:flex-row">
+                          {/* Feature description */}
+                          <div className="p-6 md:p-8 md:w-1/2 flex flex-col">
+                            <h3 className="text-xl font-bold mb-3 text-white">
+                              {feature.title}
+                            </h3>
+                            <p className="text-neutral-300 mb-4">
+                              {feature.description}
+                            </p>
+                            
+                            <button 
+                              onClick={() => toggleFeature(feature.title)}
+                              className={cn(
+                                "flex items-center gap-2 text-sm font-medium w-fit",
+                                currentSection.textColor,
+                                "transition-all duration-300 hover:opacity-80"
+                              )}
                             >
-                              <div className="p-6 flex flex-col md:flex-row gap-8">
-                                <div className="md:w-1/2 space-y-4">
-                                  <h3 className="text-2xl font-bold">{feature.title}</h3>
-                                  <p className="text-neutral-dark">{feature.description}</p>
-                                  
-                                  <Accordion type="single" collapsible className="w-full">
-                                    <AccordionItem value="benefits" className="border-0">
-                                      <AccordionTrigger className={cn("text-sm font-medium py-2 px-0", section.textColor)}>
-                                        Ver benefícios
-                                      </AccordionTrigger>
-                                      <AccordionContent>
-                                        <ul className="space-y-2 mt-2">
-                                          {feature.benefits.map((benefit, i) => (
-                                            <motion.li 
-                                              key={i}
-                                              initial={{ opacity: 0, x: -10 }}
-                                              animate={{ opacity: 1, x: 0 }}
-                                              transition={{ duration: 0.3, delay: i * 0.1 }}
-                                              className="flex items-start gap-2"
-                                            >
-                                              <div className={cn("mt-1 rounded-full p-1", section.bgColor)}>
-                                                <Check className={cn("h-3 w-3", section.textColor)} />
-                                              </div>
-                                              <span className="text-neutral-dark">{benefit}</span>
-                                            </motion.li>
-                                          ))}
-                                        </ul>
-                                      </AccordionContent>
-                                    </AccordionItem>
-                                  </Accordion>
-                                </div>
-                                
-                                <div className="md:w-1/2 rounded-lg overflow-hidden relative h-56 md:h-auto group">
-                                  <img 
-                                    src={feature.image} 
-                                    alt={feature.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                  />
-                                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                                  <div className={cn(
-                                    "absolute bottom-4 left-4 rounded-full py-1 px-3",
-                                    "bg-white/90 backdrop-blur-sm flex items-center gap-2"
-                                  )}>
-                                    <section.icon className={cn("h-4 w-4", section.textColor)} />
-                                    <span className="text-sm font-medium">Anye {section.title}</span>
-                                  </div>
-                                </div>
+                              {expandedFeature === feature.title ? (
+                                <>
+                                  <span>Ver menos</span>
+                                  <ChevronRight className="h-4 w-4 rotate-90" />
+                                </>
+                              ) : (
+                                <>
+                                  <span>Ver benefícios</span>
+                                  <Plus className="h-4 w-4" />
+                                </>
+                              )}
+                            </button>
+                            
+                            <AnimatePresence>
+                              {expandedFeature === feature.title && (
+                                <motion.div
+                                  initial={{ opacity: 0, height: 0 }}
+                                  animate={{ opacity: 1, height: 'auto' }}
+                                  exit={{ opacity: 0, height: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                  className="overflow-hidden pt-4"
+                                >
+                                  <ul className="space-y-3">
+                                    {feature.benefits.map((benefit, i) => (
+                                      <motion.li 
+                                        key={i}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ duration: 0.2, delay: i * 0.05 }}
+                                        className="flex items-start gap-2"
+                                      >
+                                        <div className={cn(
+                                          "mt-1 rounded-full p-1",
+                                          currentSection.bgColor
+                                        )}>
+                                          <Check className={cn("h-3 w-3", currentSection.textColor)} />
+                                        </div>
+                                        <span className="text-neutral-300">{benefit}</span>
+                                      </motion.li>
+                                    ))}
+                                  </ul>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                            
+                            <div className="mt-auto pt-6">
+                              <div className={cn(
+                                "inline-flex items-center gap-1.5 text-xs rounded-full",
+                                "py-1 px-2 border border-white/10 bg-white/5"
+                              )}>
+                                <section.icon className={cn("h-3 w-3", currentSection.textColor)} />
+                                <span>Anye {currentSection.title}</span>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* Feature image with interactive overlay */}
+                          <div className="md:w-1/2 relative h-56 md:h-auto group">
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent md:bg-gradient-to-l md:via-black/20 md:from-transparent md:to-black/80 z-10"></div>
+                            
+                            <img 
+                              src={feature.image} 
+                              alt={feature.title}
+                              className={cn(
+                                "w-full h-full object-cover",
+                                "transition-transform duration-700",
+                                hoveredFeature === index ? "scale-105" : "scale-100"
+                              )}
+                            />
+                            
+                            {hoveredFeature === index && (
+                              <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className={cn(
+                                  "absolute bottom-6 right-6 rounded-lg",
+                                  "bg-black/70 backdrop-blur-sm p-3 z-20"
+                                )}
+                              >
+                                <Zap className={cn("h-5 w-5", currentSection.textColor)} />
+                              </motion.div>
+                            )}
+                            
+                            <motion.div
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ 
+                                opacity: hoveredFeature === index ? 1 : 0,
+                                scale: hoveredFeature === index ? 1 : 0.8
+                              }}
+                              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
+                            >
+                              <div className={cn(
+                                "flex items-center gap-2 rounded-full",
+                                "py-2 px-4 bg-white/10 backdrop-blur-sm",
+                                "border border-white/20"
+                              )}>
+                                <MousePointer className="h-4 w-4 text-white" />
+                                <span className="text-sm font-medium text-white">Interagir</span>
                               </div>
                             </motion.div>
-                          ))}
+                          </div>
                         </div>
-                      </div>
-                    </TabsContent>
-                  ))}
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
                 </div>
-              </Tabs>
-            </div>
-          </div>
-        </section>
-
-        {/* Interactive Value Calculator Section */}
-        <section className="py-20 bg-blue-50">
-          <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-2xl mx-auto mb-12"
-            >
-              <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-medium text-purple-600 mb-4">
-                <ChevronsUp size={16} />
-                <span>ROI Calculator</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Calcule seu <span className="text-gradient">Potencial</span>
-              </h2>
-              <p className="text-lg text-neutral-dark">
-                Descubra quanto você pode economizar e potencializar seus resultados ao utilizar a Anye.
-              </p>
-            </motion.div>
-            
-            <div className="max-w-4xl mx-auto">
-              <SavingsCalculator />
-            </div>
+            )}
           </div>
         </section>
 
-        {/* Implementation Steps */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <div className="inline-flex items-center gap-2 rounded-full bg-green-500/10 px-4 py-1.5 text-sm font-medium text-green-600 mb-4">
+        {/* Implementation Steps - Clean, Simplified Timeline */}
+        <section className="py-20 relative">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(37,99,235,0.1),_transparent_70%)]"></div>
+          
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <div className="inline-flex items-center gap-2 rounded-full bg-green-500/10 px-4 py-1.5 text-sm font-medium text-green-400 mb-4">
                 <Sparkles size={16} />
                 <span>Implementação</span>
               </div>
-              <h2 className="text-3xl font-bold mb-4">
-                Implantação <span className="text-gradient">Simplificada</span>
+              <h2 className="text-3xl font-bold mb-4 text-white">
+                Implantação <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-400">Descomplicada</span>
               </h2>
-              <p className="text-neutral-dark">
+              <p className="text-neutral-300">
                 Comece a utilizar a Anye em menos de 48 horas, sem interrupções ao seu negócio.
               </p>
             </div>
             
             <div className="relative max-w-3xl mx-auto">
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-blue-100"></div>
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-500/70 via-green-500/30 to-transparent"></div>
               
               {[
                 {
@@ -231,12 +353,12 @@ const Features = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="relative ml-16 mb-12"
                 >
-                  <div className="absolute -left-24 top-0 flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 border border-blue-100">
-                    <span className="text-blue-600 font-bold text-xl">{item.step}</span>
+                  <div className="absolute -left-24 top-0 flex items-center justify-center w-16 h-16 rounded-full bg-black/40 border border-green-500/30">
+                    <span className="text-green-400 font-bold text-xl">{item.step}</span>
                   </div>
-                  <div className="p-6 bg-white rounded-lg shadow-sm border border-gray-100">
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-neutral-dark">{item.description}</p>
+                  <div className="p-6 rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
+                    <h3 className="text-xl font-bold mb-2 text-white">{item.title}</h3>
+                    <p className="text-neutral-300">{item.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -244,64 +366,33 @@ const Features = () => {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <div className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 px-4 py-1.5 text-sm font-medium text-amber-600 mb-4">
-                <Plus size={16} />
-                <span>FAQ</span>
+        {/* Interactive Value Calculator Section */}
+        <section className="py-20 relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-950"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_rgba(124,58,237,0.1),_transparent_70%)]"></div>
+          
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-2xl mx-auto mb-12"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full bg-purple-500/10 px-4 py-1.5 text-sm font-medium text-purple-400 mb-4">
+                <ChevronsUp size={16} />
+                <span>ROI Calculator</span>
               </div>
-              <h2 className="text-3xl font-bold mb-4">
-                Perguntas Frequentes
+              <h2 className="text-3xl font-bold mb-4 text-white">
+                Calcule seu <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">Potencial</span>
               </h2>
-              <p className="text-neutral-dark">
-                Respostas para as dúvidas mais comuns sobre a Anye e suas funcionalidades.
+              <p className="text-neutral-300">
+                Descubra quanto você pode economizar e potencializar seus resultados ao utilizar a Anye.
               </p>
-            </div>
+            </motion.div>
             
-            <div className="max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {[
-                  {
-                    question: "Quanto tempo leva para integrar a Anye ao meu negócio?",
-                    answer: "A maioria das empresas consegue implementar completamente a Anye em menos de 48 horas. Nossa equipe de onboarding trabalha para garantir uma transição suave, sem interrupções às suas operações diárias."
-                  },
-                  {
-                    question: "A Anye se integra com quais marketplaces?",
-                    answer: "A Anye se integra nativamente com todos os principais marketplaces do Brasil, incluindo Mercado Livre, Amazon, Shopee, Magazine Luiza, B2W (Americanas, Submarino, Shoptime), Via Varejo (Extra, Ponto Frio, Casas Bahia) e outros. Se você utiliza um marketplace que não está nesta lista, entre em contato conosco."
-                  },
-                  {
-                    question: "É necessário conhecimento técnico para usar a plataforma?",
-                    answer: "Não. A Anye foi projetada para ser intuitiva e fácil de usar, independentemente do seu nível técnico. Nossa interface é amigável e oferecemos treinamento completo para toda a sua equipe durante o onboarding."
-                  },
-                  {
-                    question: "Existe um limite de usuários ou produtos na plataforma?",
-                    answer: "Os limites dependem do plano escolhido. Nosso plano Enterprise oferece usuários ilimitados e sem restrições quanto ao número de produtos. Para mais detalhes específicos sobre limites, consulte nossa página de preços ou fale com um de nossos consultores."
-                  },
-                  {
-                    question: "A Anye oferece suporte técnico contínuo?",
-                    answer: "Sim. Todos os planos incluem suporte técnico contínuo. Nossos clientes Enterprise contam com um gerente de sucesso dedicado, disponível para resolver qualquer problema e garantir que você esteja aproveitando ao máximo todas as funcionalidades da plataforma."
-                  }
-                ].map((item, index) => (
-                  <AccordionItem key={index} value={`faq-${index}`} className="border-b border-gray-200">
-                    <AccordionTrigger className="text-lg font-medium py-5 px-0 text-left hover:no-underline">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-neutral-dark pb-5">
-                      {item.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-              
-              <div className="mt-10 text-center">
-                <p className="text-neutral-dark mb-4">Não encontrou o que procurava?</p>
-                <Button variant="outline" className="gap-2">
-                  <span>Fale com um especialista</span>
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
+            <div className="max-w-4xl mx-auto bg-black/20 backdrop-blur-sm border border-white/10 rounded-xl p-6 md:p-8">
+              <SavingsCalculator />
             </div>
           </div>
         </section>
