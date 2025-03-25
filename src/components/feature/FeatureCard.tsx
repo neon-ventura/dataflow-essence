@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check, Plus, ArrowRight } from 'lucide-react';
+import { Check, Plus, ArrowRight, Play } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FeatureSectionType, FeatureType } from './featureData';
 import FeatureBenefits from './FeatureBenefits';
@@ -71,26 +71,36 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           <h4 className="text-xl font-bold mb-2">{feature.title}</h4>
           <p className="text-neutral-dark mb-4">{feature.description}</p>
           
-          <button 
-            onClick={() => onToggleExpand(feature.title)}
-            className={cn(
-              "flex items-center gap-2 text-sm font-medium transition-colors",
-              currentSection.textColor,
-              "hover:opacity-80"
-            )}
-          >
-            {isExpanded ? (
-              <>
-                <span>Ver menos</span>
-                <ArrowRight className="h-4 w-4 rotate-90" />
-              </>
-            ) : (
-              <>
-                <span>Ver benefícios</span>
-                <Plus className="h-4 w-4" />
-              </>
-            )}
-          </button>
+          <div className="grid grid-cols-2 gap-3 mt-4">
+            <button 
+              onClick={() => onToggleExpand(feature.title)}
+              className={cn(
+                "flex items-center justify-center gap-2 text-sm font-medium transition-colors rounded-lg px-4 py-2",
+                currentSection.textColor,
+                "hover:opacity-80",
+                isExpanded ? "bg-slate-100" : `${currentSection.bgColor}`
+              )}
+            >
+              {isExpanded ? (
+                <>
+                  <span>Ver menos</span>
+                  <ArrowRight className="h-4 w-4 rotate-90" />
+                </>
+              ) : (
+                <>
+                  <span>Ver benefícios</span>
+                  <Plus className="h-4 w-4" />
+                </>
+              )}
+            </button>
+            
+            <button 
+              className="flex items-center justify-center gap-2 text-sm font-medium px-4 py-2 rounded-lg bg-blue-50 text-blue-600 border border-blue-200 transition-all duration-300 hover:opacity-90"
+            >
+              <Play className="h-4 w-4" />
+              <span>Veja na Prática</span>
+            </button>
+          </div>
           
           <FeatureBenefits 
             isExpanded={isExpanded}

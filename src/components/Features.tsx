@@ -8,6 +8,8 @@ import ImplementationSection from '@/components/features/ImplementationSection';
 import ROISection from '@/components/features/ROISection';
 import FeatureCTA from '@/components/features/FeatureCTA';
 import { features } from '@/components/features/featuresData';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -34,6 +36,15 @@ const Features = () => {
 
         {/* Implementation Timeline */}
         <ImplementationSection />
+        
+        {/* Start CTA */}
+        <div className="flex justify-center mt-16 mb-20">
+          <Button 
+            className="bg-gradient-to-r from-blue-600 to-purple-500 hover:opacity-90 text-white border-none h-12 px-8 text-base rounded-xl"
+          >
+            Vamos começar? <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
 
         {/* ROI Calculator */}
         <ROISection />

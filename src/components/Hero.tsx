@@ -94,7 +94,7 @@ const Hero = () => {
                   </motion.div>
                 </span>
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-accent-orange to-accent-orange/80"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-500"
                   initial={{ x: '-100%' }}
                   animate={{ x: isHovered ? '0%' : '-100%' }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -128,7 +128,6 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="relative rounded-2xl overflow-hidden shadow-2xl"
             >
-              {/* Interactive Dashboard Mockup */}
               <div className="relative bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="bg-neutral-light h-8 flex items-center px-4 gap-2">
                   <div className="w-3 h-3 rounded-full bg-red-400"></div>
