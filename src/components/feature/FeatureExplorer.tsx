@@ -24,16 +24,16 @@ const FeatureExplorer = () => {
 
   return (
     <section ref={React.useRef(null)} className="py-16 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/50 to-neutral-900 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-neutral-100/50 to-white z-0"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-blue to-primary-light">
               Explore Nossas Soluções
             </span>
           </h2>
-          <p className="text-neutral-300 max-w-2xl mx-auto">
+          <p className="text-neutral-dark max-w-2xl mx-auto">
             Selecione uma categoria para explorar as funcionalidades que impulsionam o crescimento do seu negócio
           </p>
         </div>
@@ -51,23 +51,23 @@ const FeatureExplorer = () => {
                 "flex flex-col items-center text-center gap-2 h-full",
                 activeSection === section.id 
                   ? `border-${section.textColor.replace('text-', '')} bg-${section.textColor.replace('text-', '')}/10` 
-                  : "border-white/10 hover:border-white/20 bg-white/5"
+                  : "border-gray-200 hover:border-gray-300 bg-white/80"
               )}
             >
               <div className={cn(
                 "rounded-full p-3 mb-2",
                 activeSection === section.id 
                   ? section.bgColor
-                  : "bg-white/10"
+                  : "bg-gray-100"
               )}>
                 <section.icon className={cn(
                   "h-6 w-6",
                   activeSection === section.id 
                     ? section.textColor
-                    : "text-white"
+                    : "text-gray-700"
                 )} />
               </div>
-              <h3 className="text-sm font-medium">
+              <h3 className="text-sm font-medium text-gray-800">
                 {section.title}
               </h3>
             </motion.button>
@@ -88,7 +88,7 @@ const FeatureExplorer = () => {
               <h3 className={cn("text-2xl font-bold mb-3", currentSection.textColor)}>
                 {currentSection.title}
               </h3>
-              <p className="text-neutral-300 max-w-2xl mx-auto">
+              <p className="text-neutral-dark max-w-2xl mx-auto">
                 {currentSection.description}
               </p>
             </motion.div>
@@ -103,8 +103,8 @@ const FeatureExplorer = () => {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className={cn(
-                      "relative rounded-xl overflow-hidden border bg-black/20 backdrop-blur-sm",
-                      expandedFeature === feature.title ? "border-white/20" : "border-white/10"
+                      "relative rounded-xl overflow-hidden border bg-white/90 backdrop-blur-sm shadow-sm",
+                      expandedFeature === feature.title ? "border-gray-300" : "border-gray-200"
                     )}
                     onMouseEnter={() => setHoveredFeature(index)}
                     onMouseLeave={() => setHoveredFeature(null)}
@@ -112,10 +112,10 @@ const FeatureExplorer = () => {
                     <div className="flex flex-col md:flex-row">
                       {/* Feature description */}
                       <div className="p-6 md:p-8 md:w-1/2 flex flex-col">
-                        <h3 className="text-xl font-bold mb-3 text-white">
+                        <h3 className="text-xl font-bold mb-3 text-gray-800">
                           {feature.title}
                         </h3>
-                        <p className="text-neutral-300 mb-4">
+                        <p className="text-neutral-dark mb-4">
                           {feature.description}
                         </p>
                         
@@ -164,7 +164,7 @@ const FeatureExplorer = () => {
                                     )}>
                                       <Check className={cn("h-3 w-3", currentSection.textColor)} />
                                     </div>
-                                    <span className="text-neutral-300">{benefit}</span>
+                                    <span className="text-neutral-dark">{benefit}</span>
                                   </motion.li>
                                 ))}
                               </ul>
@@ -175,17 +175,17 @@ const FeatureExplorer = () => {
                         <div className="mt-auto pt-6">
                           <div className={cn(
                             "inline-flex items-center gap-1.5 text-xs rounded-full",
-                            "py-1 px-2 border border-white/10 bg-white/5"
+                            "py-1 px-2 border border-gray-200 bg-gray-50"
                           )}>
                             <currentSection.icon className={cn("h-3 w-3", currentSection.textColor)} />
-                            <span>Anye {currentSection.title}</span>
+                            <span className="text-gray-700">Anye {currentSection.title}</span>
                           </div>
                         </div>
                       </div>
                       
                       {/* Feature image with interactive overlay */}
                       <div className="md:w-1/2 relative h-56 md:h-auto group">
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent md:bg-gradient-to-l md:via-black/20 md:from-transparent md:to-black/80 z-10"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-transparent to-transparent md:bg-gradient-to-l md:via-white/20 md:from-transparent md:to-white/80 z-10"></div>
                         
                         <img 
                           src={feature.image} 
@@ -204,7 +204,7 @@ const FeatureExplorer = () => {
                             exit={{ opacity: 0 }}
                             className={cn(
                               "absolute bottom-6 right-6 rounded-lg",
-                              "bg-black/70 backdrop-blur-sm p-3 z-20"
+                              "bg-white/80 backdrop-blur-sm p-3 z-20 shadow-md"
                             )}
                           >
                             <Zap className={cn("h-5 w-5", currentSection.textColor)} />
@@ -221,11 +221,11 @@ const FeatureExplorer = () => {
                         >
                           <div className={cn(
                             "flex items-center gap-2 rounded-full",
-                            "py-2 px-4 bg-white/10 backdrop-blur-sm",
-                            "border border-white/20"
+                            "py-2 px-4 bg-white/80 backdrop-blur-sm",
+                            "border border-gray-200 shadow-md"
                           )}>
-                            <MousePointer className="h-4 w-4 text-white" />
-                            <span className="text-sm font-medium text-white">Interagir</span>
+                            <MousePointer className="h-4 w-4 text-gray-800" />
+                            <span className="text-sm font-medium text-gray-800">Interagir</span>
                           </div>
                         </motion.div>
                       </div>
