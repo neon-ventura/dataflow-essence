@@ -1,44 +1,58 @@
 
 import React from 'react';
 import FeatureCard from './FeatureCard';
-import { Copy, LineChart, Search, ShoppingCart, Users, Puzzle, Tag } from 'lucide-react';
+import { Users, Puzzle, ShoppingCart, BrainCircuit, Bell, LineChart } from 'lucide-react';
 
 const Features = () => {
-  const features = [
+  // Organization of features by section
+  const featureSections = [
     {
-      title: 'Clonagem de Anúncios',
-      description: 'Clone anúncios de seus concorrentes com precisão, mantendo-se sempre competitivo no mercado.',
-      icon: Copy
+      title: "Gestão de Fornecedores e Compras",
+      description: "Otimize seu relacionamento com fornecedores e processo de compras",
+      features: [
+        {
+          title: 'Painel de Fornecedores',
+          description: 'Gerencie seus fornecedores de forma centralizada, com métricas de performance e confiabilidade.',
+          icon: Users
+        },
+        {
+          title: 'Painel de Compras',
+          description: 'Visualize oportunidades de compra com comparativos de preços entre diferentes fornecedores.',
+          icon: ShoppingCart
+        }
+      ]
     },
     {
-      title: 'Acompanhamento de Catálogo',
-      description: 'Monitore seu catálogo e o de seus concorrentes em tempo real, com alertas automáticos.',
-      icon: LineChart
+      title: "Compatibilidade para Autopeças",
+      description: "Soluções especializadas para o setor automotivo",
+      features: [
+        {
+          title: 'Compatibilidade Autoparts',
+          description: 'Sistema avançado de verificação de compatibilidade para o setor de autopeças.',
+          icon: Puzzle
+        }
+      ]
     },
     {
-      title: 'Consulta em Massa',
-      description: 'Faça consultas simultâneas de múltiplos produtos para análise comparativa avançada.',
-      icon: Search
-    },
-    {
-      title: 'Painel de Compras',
-      description: 'Visualize oportunidades de compra com comparativos de preços entre diferentes fornecedores.',
-      icon: ShoppingCart
-    },
-    {
-      title: 'Painel de Fornecedores',
-      description: 'Gerencie seus fornecedores de forma centralizada, com métricas de performance e confiabilidade.',
-      icon: Users
-    },
-    {
-      title: 'Compatibilidade Autoparts',
-      description: 'Sistema avançado de verificação de compatibilidade para o setor de autopeças.',
-      icon: Puzzle
-    },
-    {
-      title: 'Central de Promoções',
-      description: 'Crie e gerencie promoções de forma automática, reagindo às mudanças do mercado.',
-      icon: Tag
+      title: "Inteligência Artificial",
+      description: "Recursos avançados com IA para impulsionar seu negócio",
+      features: [
+        {
+          title: 'Respostas Automáticas com IA',
+          description: 'Atenda seus clientes automaticamente com respostas inteligentes baseadas em IA, melhorando seu tempo de resposta.',
+          icon: BrainCircuit
+        },
+        {
+          title: 'Avisos Inteligentes',
+          description: 'Saiba a hora certa de repor estoques do Full, FBA e muito mais com alertas personalizados baseados em dados.',
+          icon: Bell
+        },
+        {
+          title: 'Previsões de Demanda',
+          description: 'Utilize modelos de IA para prever tendências de vendas e ajustar seu estoque de forma proativa.',
+          icon: LineChart
+        }
+      ]
     }
   ];
 
@@ -57,17 +71,28 @@ const Features = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              title={feature.title}
-              description={feature.description}
-              icon={feature.icon}
-              index={index}
-            />
-          ))}
-        </div>
+        {featureSections.map((section, sectionIndex) => (
+          <div key={sectionIndex} className="mb-20">
+            <div className="text-center max-w-2xl mx-auto mb-12 animate-fade-in-up scroll-animate">
+              <h3 className="mb-4 text-gradient">{section.title}</h3>
+              <p className="text-lg text-neutral-dark">
+                {section.description}
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {section.features.map((feature, index) => (
+                <FeatureCard
+                  key={index}
+                  title={feature.title}
+                  description={feature.description}
+                  icon={feature.icon}
+                  index={index + (sectionIndex * 3)} // Adjust index for animation delay
+                />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

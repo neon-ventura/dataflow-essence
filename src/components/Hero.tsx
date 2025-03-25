@@ -15,9 +15,9 @@ const Hero = () => {
               Inteligência para seu negócio
             </div>
             <h1 className="font-black tracking-tight">
-              <span className="text-gradient">Competitividade</span> no Marketplace 
+              <span className="text-gradient">Vendas mais lucrativas</span>
               <br />
-              <span className="text-gradient">ao Seu Alcance</span>
+              <span className="text-gradient">começam com dados confiáveis</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-dark max-w-2xl mx-auto">
               Monitore concorrentes, acompanhe catálogos e otimize suas vendas com a mais avançada plataforma de gestão para marketplaces.

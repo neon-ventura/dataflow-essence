@@ -140,7 +140,8 @@ export default {
 			},
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
-				'space': ['Space Grotesk', 'sans-serif']
+				'space': ['Space Grotesk', 'sans-serif'],
+				'yellow-peas': ['Yellow Peas', 'cursive']
 			},
 		}
 	},
