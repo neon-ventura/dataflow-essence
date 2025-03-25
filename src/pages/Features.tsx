@@ -240,7 +240,7 @@ const Features = () => {
                                 "inline-flex items-center gap-1.5 text-xs rounded-full",
                                 "py-1 px-2 border border-white/10 bg-white/5"
                               )}>
-                                <section.icon className={cn("h-3 w-3", currentSection.textColor)} />
+                                <currentSection.icon className={cn("h-3 w-3", currentSection.textColor)} />
                                 <span>Anye {currentSection.title}</span>
                               </div>
                             </div>
@@ -406,3 +406,4 @@ const Features = () => {
 };
 
 export default Features;
+
