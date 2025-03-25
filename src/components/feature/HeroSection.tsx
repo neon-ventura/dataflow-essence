@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-slate-900">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(37,99,235,0.15),_transparent_50%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(124,58,237,0.15),_transparent_50%)]"></div>
       
@@ -23,12 +23,12 @@ const HeroSection = () => {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
-            Soluções Que Transformam <br/> Seu Negócio
+            Bem Vindo ao Lado Anye <br/> da Força
           </h1>
           
           <p className="text-lg text-neutral-300 mb-10 max-w-2xl mx-auto">
-            Descubra como a Anye pode revolucionar sua operação nos marketplaces com ferramentas 
-            intuitivas e poderosas projetadas para o crescimento real.
+            Descubra de maneira guiada, como a Anye pode revolucionar sua operação nos marketplaces, 
+            com ferramentas intuitivas poderosas, para crescimento real.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

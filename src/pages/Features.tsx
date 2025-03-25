@@ -10,7 +10,7 @@ import ROICalculatorSection from '@/components/feature/ROICalculatorSection';
 
 const Features = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-foreground">
+    <div className="min-h-screen flex flex-col bg-slate-900 text-white">
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

@@ -1,48 +1,50 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
 import { FeatureSectionType } from './featureData';
+import { cn } from '@/lib/utils';
 
 interface FeatureCategoryNavProps {
   sections: FeatureSectionType[];
   activeSection: string;
   setActiveSection: (id: string) => void;
+  isDark?: boolean;
 }
 
-const FeatureCategoryNav = ({ sections, activeSection, setActiveSection }: FeatureCategoryNavProps) => {
+const FeatureCategoryNav = ({ 
+  sections, 
+  activeSection, 
+  setActiveSection,
+  isDark = false
+}: FeatureCategoryNavProps) => {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
-      {sections.map((section) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+      {sections.map((section, index) => (
         <motion.button
           key={section.id}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
           onClick={() => setActiveSection(section.id)}
           className={cn(
-            "p-4 rounded-xl shadow-sm backdrop-blur-sm border transition-all duration-300",
-            "flex flex-col items-center text-center gap-2 h-full",
+            "px-4 py-3 rounded-lg flex items-center justify-center gap-2 font-medium transition-all duration-300",
             activeSection === section.id 
-              ? `border-${section.textColor.replace('text-', '')} bg-${section.textColor.replace('text-', '')}/10` 
-              : "border-slate-200 hover:border-slate-300 bg-white"
+              ? `${section.bgColor} shadow-lg` 
+              : `${isDark ? 'bg-slate-800 hover:bg-slate-700' : 'bg-white hover:bg-slate-50'} border`,
+            isDark ? 'border-slate-700' : 'border-slate-200'
           )}
         >
-          <div className={cn(
-            "rounded-full p-3 mb-2",
+          <section.icon className={cn(
+            "h-5 w-5",
+            activeSection === section.id ? section.textColor : (isDark ? 'text-slate-400' : 'text-slate-500')
+          )} />
+          <span className={
             activeSection === section.id 
-              ? section.bgColor
-              : "bg-slate-100"
-          )}>
-            <section.icon className={cn(
-              "h-6 w-6",
-              activeSection === section.id 
-                ? section.textColor
-                : "text-slate-700"
-            )} />
-          </div>
-          <h3 className="text-sm font-medium text-slate-900">
+              ? section.textColor 
+              : (isDark ? 'text-slate-300' : 'text-slate-700')
+          }>
             {section.title}
-          </h3>
+          </span>
         </motion.button>
       ))}
     </div>

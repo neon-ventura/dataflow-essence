@@ -15,6 +15,7 @@ interface FeatureCardItemProps {
   hoveredFeature: number | null;
   toggleFeature: (title: string) => void;
   setHoveredFeature: (index: number | null) => void;
+  isDark?: boolean;
 }
 
 const FeatureCardItem = ({ 
@@ -24,8 +25,11 @@ const FeatureCardItem = ({
   expandedFeature, 
   hoveredFeature, 
   toggleFeature, 
-  setHoveredFeature 
+  setHoveredFeature,
+  isDark = false
 }: FeatureCardItemProps) => {
+  const isExpanded = expandedFeature === feature.title;
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -33,8 +37,10 @@ const FeatureCardItem = ({
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className={cn(
-        "relative rounded-xl overflow-hidden border shadow-sm bg-white",
-        expandedFeature === feature.title ? "border-slate-300" : "border-slate-200"
+        "relative rounded-xl overflow-hidden border shadow-sm",
+        isDark 
+          ? isExpanded ? "bg-slate-800 border-slate-700" : "bg-slate-800/80 border-slate-700"
+          : isExpanded ? "bg-white border-slate-300" : "bg-white border-slate-200"
       )}
       onMouseEnter={() => setHoveredFeature(index)}
       onMouseLeave={() => setHoveredFeature(null)}
@@ -42,10 +48,10 @@ const FeatureCardItem = ({
       <div className="flex flex-col md:flex-row">
         {/* Feature description */}
         <div className="p-6 md:p-8 md:w-1/2 flex flex-col">
-          <h3 className="text-xl font-bold mb-3 text-slate-900">
+          <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-slate-900'}`}>
             {feature.title}
           </h3>
-          <p className="text-slate-700 mb-4">
+          <p className={`mb-4 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
             {feature.description}
           </p>
           
@@ -59,7 +65,7 @@ const FeatureCardItem = ({
               "transition-all duration-300 hover:opacity-80"
             )}
           >
-            {expandedFeature === feature.title ? (
+            {isExpanded ? (
               <>
                 <span>Ver menos</span>
                 <ChevronRight className="h-4 w-4 rotate-90" />
@@ -72,20 +78,15 @@ const FeatureCardItem = ({
             )}
           </motion.button>
           
-          <FeatureBenefitList 
-            benefits={feature.benefits}
-            expanded={expandedFeature === feature.title}
-            sectionColor={currentSection.textColor}
-            sectionBgColor={currentSection.bgColor}
-          />
-          
           <div className="mt-auto pt-6">
             <div className={cn(
               "inline-flex items-center gap-1.5 text-xs rounded-full",
-              "py-1 px-2 border border-slate-200 bg-slate-50"
+              "py-1 px-2",
+              isDark ? "border-slate-700 bg-slate-700" : "border-slate-200 bg-slate-50",
+              isDark ? "border" : "border"
             )}>
               <currentSection.icon className={cn("h-3 w-3", currentSection.textColor)} />
-              <span className="text-slate-700">Anye {currentSection.title}</span>
+              <span className={isDark ? "text-slate-300" : "text-slate-700"}>Anye {currentSection.title}</span>
             </div>
           </div>
         </div>
@@ -98,6 +99,32 @@ const FeatureCardItem = ({
           sectionColor={currentSection.textColor}
         />
       </div>
+      
+      {/* Improved benefits display */}
+      {isExpanded && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+          className={cn(
+            "p-6 border-t",
+            isDark ? "border-slate-700 bg-slate-800/50" : "border-slate-200 bg-slate-50/50"
+          )}
+        >
+          <h4 className={`font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            Principais benefícios:
+          </h4>
+          <FeatureBenefitList 
+            benefits={feature.benefits}
+            expanded={true}
+            sectionColor={currentSection.textColor}
+            sectionBgColor={currentSection.bgColor}
+            isDark={isDark}
+            layout="grid"
+          />
+        </motion.div>
+      )}
     </motion.div>
   );
 };

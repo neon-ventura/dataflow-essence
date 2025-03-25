@@ -6,9 +6,10 @@ import { FeatureSectionType } from './featureData';
 
 interface FeatureActiveSectionProps {
   section: FeatureSectionType;
+  isDark?: boolean;
 }
 
-const FeatureActiveSection = ({ section }: FeatureActiveSectionProps) => {
+const FeatureActiveSection = ({ section, isDark = false }: FeatureActiveSectionProps) => {
   return (
     <motion.div
       key={section.id}
@@ -21,7 +22,7 @@ const FeatureActiveSection = ({ section }: FeatureActiveSectionProps) => {
       <h3 className={cn("text-2xl font-bold mb-3", section.textColor)}>
         {section.title}
       </h3>
-      <p className="text-slate-700 max-w-2xl mx-auto">
+      <p className={`max-w-2xl mx-auto ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
         {section.description}
       </p>
     </motion.div>

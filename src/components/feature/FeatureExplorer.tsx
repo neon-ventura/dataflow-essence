@@ -27,13 +27,14 @@ const FeatureExplorer = () => {
   };
 
   return (
-    <section ref={React.useRef(null)} className="py-16 relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white z-0"></div>
+    <section ref={React.useRef(null)} className="py-16 relative bg-slate-900">
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900 to-slate-800 z-0"></div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <FeatureSectionHeader 
           title="Explore Nossas Soluções"
           description="Selecione uma categoria para explorar as funcionalidades que impulsionam o crescimento do seu negócio"
+          isDark={true}
         />
         
         {/* Category Navigation */}
@@ -41,6 +42,7 @@ const FeatureExplorer = () => {
           sections={featureSections}
           activeSection={activeSection}
           setActiveSection={handleCategoryChange}
+          isDark={true}
         />
         
         {/* Active Section Features */}
@@ -53,7 +55,7 @@ const FeatureExplorer = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
             >
-              <FeatureActiveSection section={currentSection} />
+              <FeatureActiveSection section={currentSection} isDark={true} />
               
               <div className="space-y-8">
                 <AnimatePresence>
@@ -67,6 +69,7 @@ const FeatureExplorer = () => {
                       hoveredFeature={hoveredFeature}
                       toggleFeature={toggleFeature}
                       setHoveredFeature={setHoveredFeature}
+                      isDark={true}
                     />
                   ))}
                 </AnimatePresence>
