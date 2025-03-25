@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Plus, ChevronRight, PlusCircle, Check } from 'lucide-react';
+import { Plus, ChevronRight, PlusCircle, Check, Play, Video } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FeatureType, FeatureSectionType } from './featureData';
 import FeatureBenefitList from './FeatureBenefitList';
@@ -91,30 +91,48 @@ const FeatureCardItem = ({
           </ul>
         </div>
         
-        <motion.button 
-          onClick={() => toggleFeature(feature.title)}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          className={cn(
-            "flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-lg w-full justify-center mt-2",
-            isExpanded ? 
-              (isDark ? "bg-slate-700 text-white" : "bg-slate-100 text-slate-800") : 
-              (isDark ? `${currentSection.bgColor} ${currentSection.textColor}` : `${currentSection.bgColor} ${currentSection.textColor}`),
-            "transition-all duration-300 hover:opacity-90"
-          )}
-        >
-          {isExpanded ? (
-            <>
-              <span>Ver menos</span>
-              <ChevronRight className="h-4 w-4 rotate-90" />
-            </>
-          ) : (
-            <>
-              <span>Ver todos benefícios</span>
-              <PlusCircle className="h-4 w-4" />
-            </>
-          )}
-        </motion.button>
+        {/* Action buttons - Add the "Veja na Prática" button */}
+        <div className="grid grid-cols-2 gap-3 mt-4">
+          <motion.button 
+            onClick={() => toggleFeature(feature.title)}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className={cn(
+              "flex items-center justify-center gap-2 text-sm font-medium px-4 py-2 rounded-lg",
+              isExpanded ? 
+                (isDark ? "bg-slate-700 text-white" : "bg-slate-100 text-slate-800") : 
+                (isDark ? `${currentSection.bgColor} ${currentSection.textColor}` : `${currentSection.bgColor} ${currentSection.textColor}`),
+              "transition-all duration-300 hover:opacity-90"
+            )}
+          >
+            {isExpanded ? (
+              <>
+                <span>Ver menos</span>
+                <ChevronRight className="h-4 w-4 rotate-90" />
+              </>
+            ) : (
+              <>
+                <span>Ver benefícios</span>
+                <PlusCircle className="h-4 w-4" />
+              </>
+            )}
+          </motion.button>
+          
+          <motion.button 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className={cn(
+              "flex items-center justify-center gap-2 text-sm font-medium px-4 py-2 rounded-lg",
+              isDark ? 
+                "bg-blue-600/30 text-blue-300 border border-blue-500/30" : 
+                "bg-blue-50 text-blue-600 border border-blue-200",
+              "transition-all duration-300 hover:opacity-90"
+            )}
+          >
+            <Play className="h-4 w-4" />
+            <span>Veja na Prática</span>
+          </motion.button>
+        </div>
       </div>
       
       {/* Expanded benefits display */}
