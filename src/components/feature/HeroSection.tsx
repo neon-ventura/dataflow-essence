@@ -24,13 +24,15 @@ const HeroSection = () => {
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
             Bem Vindo ao Lado <motion.span
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 1, scale: 1 }}
+              animate={{ 
+                opacity: [1, 1, 1],
+                scale: [1, 1.05, 1]
+              }}
               transition={{
-                duration: 0.8,
+                duration: 3,
                 repeat: Infinity,
-                repeatType: "reverse",
-                repeatDelay: 5
+                repeatType: "loop"
               }}
               className="relative inline-block bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-300"
             >
