@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, CircleDollarSign, Sparkles } from 'lucide-react';
@@ -169,32 +168,70 @@ const PricingPlans = () => {
         <div className="max-w-3xl mx-auto">
           <h3 className="text-2xl font-bold mb-6 text-center">Perguntas Frequentes</h3>
           
-          <Accordion type="single" collapsible className="w-full">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>O que são créditos de anúncios?</AccordionTrigger>
-              <AccordionContent>
-                Os créditos de anúncios permitem impulsionar seus produtos nos principais marketplaces. Você pode distribuir esses créditos entre diferentes plataformas como Mercado Livre, Amazon e Shopee para aumentar a visibilidade dos seus produtos.
+          <Accordion type="single" collapsible className="w-full space-y-4">
+            <AccordionItem value="item-1" className="border rounded-lg px-6">
+              <AccordionTrigger className="py-4 hover:no-underline">
+                <span className="text-left font-medium">Quais marketplaces são compatíveis com o Anye?</span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 pt-2">
+                <p className="text-neutral-dark">
+                  O Anye é compatível com todos os principais marketplaces do Brasil, incluindo Mercado Livre, Amazon, Shopee, Magazine Luiza, Americanas, Casas Bahia, Olist e outros. Nossa plataforma é constantemente atualizada para incluir novas integrações conforme a demanda dos usuários.
+                </p>
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Existe período de fidelidade?</AccordionTrigger>
-              <AccordionContent>
-                Não, todos os planos são sem fidelidade. Você pode cancelar a qualquer momento sem taxas adicionais. Os planos são renovados automaticamente a cada mês, mas você tem liberdade para cancelar quando desejar.
+            <AccordionItem value="item-2" className="border rounded-lg px-6">
+              <AccordionTrigger className="py-4 hover:no-underline">
+                <span className="text-left font-medium">Quanto tempo leva para implementar o Anye na minha operação?</span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 pt-2">
+                <p className="text-neutral-dark">
+                  A implementação básica do Anye pode ser feita em até 48 horas. Para operações maiores ou mais complexas, o tempo de implementação completa varia de 3 a 7 dias, incluindo a importação de dados históricos, configuração de alertas personalizados e treinamento da equipe. Nossa equipe de onboarding acompanha todo o processo para garantir uma transição suave.
+                </p>
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-3">
-              <AccordionTrigger>Como funciona o plano Enterprise?</AccordionTrigger>
-              <AccordionContent>
-                O plano Enterprise é personalizado para grandes operações. Nossa equipe realiza uma análise detalhada das suas necessidades e cria uma solução sob medida. Os créditos de anúncios, número de usuários e funcionalidades são definidos de acordo com as necessidades específicas do seu negócio.
+            <AccordionItem value="item-3" className="border rounded-lg px-6">
+              <AccordionTrigger className="py-4 hover:no-underline">
+                <span className="text-left font-medium">Como funcionam os créditos de anúncios incluídos nos planos?</span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 pt-2">
+                <p className="text-neutral-dark">
+                  Os créditos de anúncios permitem impulsionar seus produtos diretamente dos painéis do Anye para os marketplaces. Você pode distribuir esses créditos entre diferentes plataformas de acordo com sua estratégia. O sistema de IA do Anye também sugere os melhores produtos para anunciar com base no histórico de conversão e tendências de mercado, maximizando o retorno sobre o investimento em publicidade.
+                </p>
               </AccordionContent>
             </AccordionItem>
             
-            <AccordionItem value="item-4">
-              <AccordionTrigger>Posso mudar de plano a qualquer momento?</AccordionTrigger>
-              <AccordionContent>
-                Sim, você pode fazer upgrade ou downgrade do seu plano quando desejar. As mudanças são aplicadas imediatamente e o valor é ajustado proporcionalmente ao tempo restante do ciclo atual de faturamento.
+            <AccordionItem value="item-4" className="border rounded-lg px-6">
+              <AccordionTrigger className="py-4 hover:no-underline">
+                <span className="text-left font-medium">Preciso ter conhecimento técnico para usar o Anye?</span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 pt-2">
+                <p className="text-neutral-dark">
+                  Não é necessário conhecimento técnico. A plataforma Anye foi projetada para ser intuitiva e fácil de usar, mesmo para quem está começando no e-commerce. Oferecemos treinamento completo incluído em todos os planos, além de uma biblioteca de vídeos tutoriais e documentação detalhada. Nossa equipe de suporte está disponível para ajudar com qualquer dúvida ou necessidade específica da sua operação.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-5" className="border rounded-lg px-6">
+              <AccordionTrigger className="py-4 hover:no-underline">
+                <span className="text-left font-medium">O Anye funciona para qualquer segmento de produtos?</span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 pt-2">
+                <p className="text-neutral-dark">
+                  Sim, o Anye é versátil e funciona para praticamente qualquer segmento de produtos. Temos recursos específicos para setores como autopeças, moda, eletrônicos, casa e decoração, entre outros. Cada segmento tem funcionalidades personalizadas que atendem às particularidades do mercado. Para segmentos muito específicos, nosso time de produto pode desenvolver adaptações exclusivas para o seu negócio no plano Enterprise.
+                </p>
+              </AccordionContent>
+            </AccordionItem>
+            
+            <AccordionItem value="item-6" className="border rounded-lg px-6">
+              <AccordionTrigger className="py-4 hover:no-underline">
+                <span className="text-left font-medium">Posso cancelar ou mudar de plano a qualquer momento?</span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-4 pt-2">
+                <p className="text-neutral-dark">
+                  Sim, não exigimos fidelidade em nossos planos. Você pode fazer upgrade, downgrade ou cancelar sua assinatura a qualquer momento através do painel administrativo. As mudanças são aplicadas imediatamente e os valores são ajustados proporcionalmente ao tempo restante do ciclo atual de faturamento. Seus dados ficam disponíveis para exportação por 30 dias após o cancelamento.
+                </p>
               </AccordionContent>
             </AccordionItem>
           </Accordion>

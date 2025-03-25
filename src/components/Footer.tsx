@@ -56,7 +56,13 @@ const Footer = () => {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           <div className="col-span-2">
             <div className="mb-6">
-              <a href="/" className="text-2xl font-bold text-primary-blue">Anye</a>
+              <a href="/" className="flex items-center">
+                <img 
+                  src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
+                  alt="Anye Logo" 
+                  className="h-10" 
+                />
+              </a>
             </div>
             <p className="text-neutral-dark mb-6 max-w-md">
               Plataforma completa para monitoramento e otimização de performance em marketplaces.
@@ -95,9 +101,11 @@ const Footer = () => {
         </div>
         
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-light">
-          <p className="text-neutral-dark text-sm mb-4 md:mb-0">
-            &copy; {currentYear} Anye. Todos os direitos reservados.
-          </p>
+          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 mb-4 md:mb-0">
+            <p className="text-neutral-dark text-sm">
+              &copy; {currentYear} Anye. Todos os direitos reservados.
+            </p>
+          </div>
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
             <a href="mailto:contato@anye.com" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
               <Mail size={16} className="mr-2" /> contato@anye.com
