@@ -28,7 +28,6 @@ const FeatureCardItem = ({
 }: FeatureCardItemProps) => {
   return (
     <motion.div
-      key={feature.title}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
@@ -50,8 +49,10 @@ const FeatureCardItem = ({
             {feature.description}
           </p>
           
-          <button 
+          <motion.button 
             onClick={() => toggleFeature(feature.title)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={cn(
               "flex items-center gap-2 text-sm font-medium w-fit",
               currentSection.textColor,
@@ -69,7 +70,7 @@ const FeatureCardItem = ({
                 <Plus className="h-4 w-4" />
               </>
             )}
-          </button>
+          </motion.button>
           
           <FeatureBenefitList 
             benefits={feature.benefits}
