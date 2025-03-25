@@ -53,23 +53,23 @@ const SavingsCalculator: React.FC = () => {
   }, [employees, hoursPerWeek, hourlyRate]);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg p-6 md:p-8">
-      <div className="flex items-center gap-2 mb-6">
-        <div className="bg-primary-blue/10 p-2 rounded-full">
-          <Calculator className="h-6 w-6 text-primary-blue" />
+    <div className="bg-gradient-to-br from-white to-blue-50 rounded-xl shadow-lg p-6 md:p-8 border border-blue-100">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="bg-primary-blue p-2.5 rounded-full">
+          <Calculator className="h-6 w-6 text-white" />
         </div>
-        <h3 className="text-xl font-bold">Calculadora de Economia</h3>
+        <h3 className="text-2xl font-bold text-primary-blue">Calculadora de Economia</h3>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="space-y-9">
           <div>
-            <div className="flex justify-between mb-2">
-              <label className="font-medium flex items-center gap-2">
-                <Users className="h-4 w-4 text-neutral-dark" />
-                Funcionários dedicados: <span className="font-bold text-primary-blue">{employees}</span>
+            <div className="flex justify-between mb-3">
+              <label className="font-semibold flex items-center gap-2 text-neutral-dark">
+                <Users className="h-5 w-5 text-primary-blue" />
+                Funcionários dedicados
               </label>
-              <span className="text-sm text-neutral-dark">{employees} {employees === 1 ? 'pessoa' : 'pessoas'}</span>
+              <span className="text-lg font-bold text-primary-blue">{employees} {employees === 1 ? 'pessoa' : 'pessoas'}</span>
             </div>
             <Slider 
               value={[employees]} 
@@ -82,12 +82,12 @@ const SavingsCalculator: React.FC = () => {
           </div>
           
           <div>
-            <div className="flex justify-between mb-2">
-              <label className="font-medium flex items-center gap-2">
-                <Timer className="h-4 w-4 text-neutral-dark" />
-                Horas semanais: <span className="font-bold text-primary-blue">{hoursPerWeek}</span>
+            <div className="flex justify-between mb-3">
+              <label className="font-semibold flex items-center gap-2 text-neutral-dark">
+                <Timer className="h-5 w-5 text-primary-blue" />
+                Horas semanais
               </label>
-              <span className="text-sm text-neutral-dark">{hoursPerWeek} horas</span>
+              <span className="text-lg font-bold text-primary-blue">{hoursPerWeek} horas</span>
             </div>
             <Slider 
               value={[hoursPerWeek]} 
@@ -100,12 +100,12 @@ const SavingsCalculator: React.FC = () => {
           </div>
           
           <div>
-            <div className="flex justify-between mb-2">
-              <label className="font-medium flex items-center gap-2">
-                <DollarSign className="h-4 w-4 text-neutral-dark" />
-                Custo por hora: <span className="font-bold text-primary-blue">{formatCurrency(hourlyRate)}</span>
+            <div className="flex justify-between mb-3">
+              <label className="font-semibold flex items-center gap-2 text-neutral-dark">
+                <DollarSign className="h-5 w-5 text-primary-blue" />
+                Custo por hora
               </label>
-              <span className="text-sm text-neutral-dark">{formatCurrency(hourlyRate)}/hora</span>
+              <span className="text-lg font-bold text-primary-blue">{formatCurrency(hourlyRate)}</span>
             </div>
             <Slider 
               value={[hourlyRate]} 
@@ -118,37 +118,31 @@ const SavingsCalculator: React.FC = () => {
           </div>
         </div>
         
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-6">
-          <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+        <div className="bg-white rounded-xl p-7 shadow-md border border-blue-100">
+          <h4 className="text-xl font-bold mb-6 flex items-center gap-2 text-primary-blue">
             <TrendingUp className="h-5 w-5 text-green-600" />
             Sua Economia Estimada
           </h4>
           
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[200px]">Métrica</TableHead>
-                <TableHead>Valor</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="font-medium">Redução nas horas operacionais</TableCell>
-                <TableCell className="text-green-600 font-bold">{timePercentage}%</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">Economia mensal</TableCell>
-                <TableCell className="text-green-600 font-bold">{formatCurrency(monthlySavings)}</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-medium">Retorno anual sobre investimento</TableCell>
-                <TableCell className="text-green-600 font-bold">{yearlyROI.toFixed(0)}%</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+          <div className="space-y-6">
+            <div className="flex justify-between items-center pb-4 border-b border-blue-100">
+              <span className="font-medium text-neutral-dark">Redução nas horas operacionais</span>
+              <span className="text-xl font-bold text-green-600">{timePercentage}%</span>
+            </div>
+            
+            <div className="flex justify-between items-center pb-4 border-b border-blue-100">
+              <span className="font-medium text-neutral-dark">Economia mensal</span>
+              <span className="text-xl font-bold text-green-600">{formatCurrency(monthlySavings)}</span>
+            </div>
+            
+            <div className="flex justify-between items-center">
+              <span className="font-medium text-neutral-dark">Retorno anual sobre investimento</span>
+              <span className="text-xl font-bold text-green-600">{yearlyROI.toFixed(0)}%</span>
+            </div>
+          </div>
           
-          <div className="mt-6">
-            <Button className="w-full bg-primary-blue hover:bg-primary-blue/90">
+          <div className="mt-8">
+            <Button className="w-full bg-primary-blue hover:bg-primary-blue/90 text-base py-6">
               Ver Planos e Economizar
             </Button>
           </div>
