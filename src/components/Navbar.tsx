@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -37,14 +37,20 @@ const Navbar = () => {
     <nav 
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'glassmorphism py-3' : 'bg-transparent py-5'
+        isScrolled 
+          ? 'glassmorphism py-3 shadow-lg' 
+          : 'bg-transparent py-5'
       )}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <a href="/" className="flex items-center">
-              <span className="text-xl font-bold text-primary-blue">Anye</span>
+              <img 
+                src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
+                alt="Anye Logo" 
+                className="h-8 md:h-10" 
+              />
             </a>
           </div>
 
@@ -61,11 +67,17 @@ const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="#login" className="text-primary-blue hover:text-primary-light transition-colors duration-300">
+          <div className="hidden md:flex items-center gap-4">
+            <a 
+              href="#login" 
+              className="px-5 py-2 rounded-lg text-primary-blue hover:text-primary-light transition-colors duration-300"
+            >
               Login
             </a>
-            <a href="#signup" className="btn-accent">
+            <a 
+              href="#signup" 
+              className="px-5 py-2 rounded-lg bg-primary-blue text-white hover:bg-primary-light transition-colors duration-300"
+            >
               Começar Agora
             </a>
           </div>
@@ -89,7 +101,7 @@ const Navbar = () => {
             isOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
           )}
         >
-          <div className="flex flex-col space-y-4 py-4">
+          <div className="flex flex-col space-y-4 py-4 bg-white rounded-lg shadow-lg">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -110,7 +122,7 @@ const Navbar = () => {
               </a>
               <a 
                 href="#signup" 
-                className="btn-accent text-center"
+                className="bg-primary-blue text-white hover:bg-primary-light transition-colors py-2 px-4 rounded-lg text-center"
                 onClick={() => setIsOpen(false)}
               >
                 Começar Agora
