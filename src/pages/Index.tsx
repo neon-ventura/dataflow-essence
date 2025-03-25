@@ -2,7 +2,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Features from '@/components/Features';
+import HomeFeatures from '@/components/HomeFeatures';
 import Testimonials from '@/components/Testimonials';
 import CaseStudy from '@/components/CaseStudy';
 import Awards from '@/components/Awards';
@@ -17,7 +17,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
-        <Features />
+        <HomeFeatures />
         <CaseStudy />
         <Testimonials />
         <Awards />
