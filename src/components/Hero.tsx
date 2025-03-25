@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { ChevronRight, ArrowRight, MousePointer, BarChart4, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -56,19 +55,8 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
             >
-              <div className="flex items-center gap-4 mb-2">
+              <div className="mb-2">
                 <span className="text-gradient">Dados Confiáveis</span>
-                <motion.div 
-                  initial={{ scale: 1 }}
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative h-12 w-12 flex items-center justify-center"
-                >
-                  <span className="absolute inset-0 bg-accent-orange/20 rounded-full animate-ping opacity-75"></span>
-                  <span className="relative flex h-10 w-10 items-center justify-center bg-accent-orange text-white rounded-full">
-                    <span>=</span>
-                  </span>
-                </motion.div>
               </div>
               <span className="text-gradient">Vendas Lucrativas</span>
             </motion.h1>

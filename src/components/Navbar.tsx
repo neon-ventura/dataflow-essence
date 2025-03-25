@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,7 +30,8 @@ const Navbar = () => {
   const navItems = [
     { name: 'Funcionalidades', href: '#features' },
     { name: 'Preços', href: '#pricing' },
-    { name: 'Sobre', href: '#about' },
+    { name: 'Comparativos', href: '#compare' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Contato', href: '#contact' },
   ];
 
@@ -45,13 +47,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img 
                 src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
                 alt="Anye Logo" 
-                className="h-10 md:h-14" 
+                className="h-12 md:h-16" 
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop navigation */}
