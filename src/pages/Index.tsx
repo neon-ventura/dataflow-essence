@@ -7,6 +7,7 @@ import Testimonials from '@/components/Testimonials';
 import Awards from '@/components/Awards';
 import BlogPreview from '@/components/BlogPreview';
 import CompetitorComparison from '@/components/CompetitorComparison';
+import PricingPlans from '@/components/pricing/PricingPlans';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 
@@ -19,6 +20,7 @@ const Index = () => {
         <Features />
         <Testimonials />
         <Awards />
+        <PricingPlans />
         <CompetitorComparison />
         <BlogPreview />
         <CTA />
