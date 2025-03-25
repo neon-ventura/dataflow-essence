@@ -7,11 +7,9 @@ const Hero = () => {
   
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
-      {/* Animated background elements */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(26,115,232,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(26,115,232,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         
-        {/* Floating elements */}
         <motion.div 
           initial={{ y: 0 }}
           animate={{ y: [-20, 0, -20] }}
@@ -25,7 +23,6 @@ const Hero = () => {
           className="absolute top-3/4 right-1/4 w-96 h-96 rounded-full bg-primary-light/5"
         />
         
-        {/* Gradient orbs */}
         <motion.div 
           initial={{ opacity: 0.7 }}
           animate={{ opacity: [0.7, 0.9, 0.7] }}
@@ -78,7 +75,7 @@ const Hero = () => {
             >
               <motion.a 
                 href="#signup" 
-                className="group relative overflow-hidden rounded-lg btn-accent flex items-center gap-2 px-6 py-3 w-full sm:w-auto"
+                className="group relative overflow-hidden rounded-lg flex items-center gap-2 px-6 py-3 w-full sm:w-auto"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 whileHover={{ scale: 1.03 }}
