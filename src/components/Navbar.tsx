@@ -49,7 +49,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
                 alt="Anye Logo" 
-                className="h-8 md:h-10" 
+                className="h-10 md:h-14" 
               />
             </a>
           </div>
