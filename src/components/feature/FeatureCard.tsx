@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronsUp, Plus, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { FeatureSectionType, FeatureType } from './featureData';
+import FeatureBenefits from './FeatureBenefits';
 
 interface FeatureCardProps {
   feature: FeatureType;
