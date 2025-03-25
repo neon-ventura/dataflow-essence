@@ -25,6 +25,12 @@ const FeatureActiveSection = ({ section, isDark = false }: FeatureActiveSectionP
       <p className={`max-w-2xl mx-auto ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
         {section.description}
       </p>
+      <motion.div 
+        className="w-16 h-1 mx-auto mt-4 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400"
+        initial={{ width: 0 }}
+        animate={{ width: "4rem" }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      />
     </motion.div>
   );
 };

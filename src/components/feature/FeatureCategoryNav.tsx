@@ -29,19 +29,19 @@ const FeatureCategoryNav = ({
           className={cn(
             "px-4 py-3 rounded-lg flex items-center justify-center gap-2 font-medium transition-all duration-300",
             activeSection === section.id 
-              ? `${section.bgColor} shadow-lg` 
-              : `${isDark ? 'bg-slate-800 hover:bg-slate-700' : 'bg-white hover:bg-slate-50'} border`,
-            isDark ? 'border-slate-700' : 'border-slate-200'
+              ? `${section.bgColor} shadow-lg shadow-blue-900/20` 
+              : `${isDark ? 'bg-slate-800/80 hover:bg-slate-700/80' : 'bg-white hover:bg-slate-50'} border`,
+            isDark ? 'border-blue-900/20' : 'border-slate-200'
           )}
         >
           <section.icon className={cn(
             "h-5 w-5",
-            activeSection === section.id ? section.textColor : (isDark ? 'text-slate-400' : 'text-slate-500')
+            activeSection === section.id ? section.textColor : (isDark ? 'text-blue-400' : 'text-slate-500')
           )} />
           <span className={
             activeSection === section.id 
               ? section.textColor 
-              : (isDark ? 'text-slate-300' : 'text-slate-700')
+              : (isDark ? 'text-blue-300' : 'text-slate-700')
           }>
             {section.title}
           </span>

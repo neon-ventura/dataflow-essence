@@ -39,7 +39,7 @@ const FeatureCardItem = ({
       className={cn(
         "relative rounded-xl overflow-hidden border shadow-sm",
         isDark 
-          ? isExpanded ? "bg-slate-800 border-slate-700" : "bg-slate-800/80 border-slate-700"
+          ? isExpanded ? "bg-slate-800/80 border-blue-900/30" : "bg-slate-800/60 border-slate-700"
           : isExpanded ? "bg-white border-slate-300" : "bg-white border-slate-200"
       )}
       onMouseEnter={() => setHoveredFeature(index)}
@@ -82,7 +82,7 @@ const FeatureCardItem = ({
             <div className={cn(
               "inline-flex items-center gap-1.5 text-xs rounded-full",
               "py-1 px-2",
-              isDark ? "border-slate-700 bg-slate-700" : "border-slate-200 bg-slate-50",
+              isDark ? "border-slate-700 bg-slate-700/70" : "border-slate-200 bg-slate-50",
               isDark ? "border" : "border"
             )}>
               <currentSection.icon className={cn("h-3 w-3", currentSection.textColor)} />
@@ -109,7 +109,7 @@ const FeatureCardItem = ({
           transition={{ duration: 0.3 }}
           className={cn(
             "p-6 border-t",
-            isDark ? "border-slate-700 bg-slate-800/50" : "border-slate-200 bg-slate-50/50"
+            isDark ? "border-blue-900/30 bg-gradient-to-br from-slate-800 to-slate-800/50" : "border-slate-200 bg-slate-50/50"
           )}
         >
           <h4 className={`font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
