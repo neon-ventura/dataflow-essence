@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -56,9 +58,6 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <a href="#login" className="px-5 py-2 rounded-lg text-primary-blue hover:text-primary-light transition-colors duration-300">
-              Login
-            </a>
             <a href="#signup" className="px-5 py-2 rounded-lg bg-primary-blue text-white hover:bg-primary-light transition-colors duration-300">
               Começar Agora
             </a>
@@ -81,9 +80,6 @@ const Navbar = () => {
                   {item.name}
                 </a>)}
             <div className="flex flex-col space-y-3 px-4 pt-4 border-t border-neutral-light">
-              <a href="#login" className="text-primary-blue hover:text-primary-light transition-colors py-2" onClick={() => setIsOpen(false)}>
-                Login
-              </a>
               <a href="#signup" className="bg-primary-blue text-white hover:bg-primary-light transition-colors py-2 px-4 rounded-lg text-center" onClick={() => setIsOpen(false)}>
                 Começar Agora
               </a>
