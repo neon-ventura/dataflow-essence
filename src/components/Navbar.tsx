@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -51,7 +50,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/02c626f9-ffc4-4912-b986-0c6c452801fc.png" 
                 alt="Anye Logo" 
-                className="h-12 md:h-16" 
+                className="h-16 md:h-20" 
               />
             </Link>
           </div>
