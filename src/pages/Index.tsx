@@ -10,6 +10,7 @@ import PricingPlans from '@/components/pricing/PricingPlans';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import CompetitorComparison from '@/components/CompetitorComparison';
+import Careers from '@/components/Careers';
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
         <Awards />
         <CompetitorComparison />
         <PricingPlans />
+        <Careers />
         <CTA />
       </main>
       <Footer />
