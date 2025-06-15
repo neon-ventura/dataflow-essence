@@ -52,10 +52,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight"
             >
-              <div className="mb-2">
-                <span className="text-gradient">Dados Confiáveis</span>
-              </div>
-              <span className="text-gradient">Vendas Lucrativas</span>
+              Transforme sua operação de marketplace em uma máquina de vendas
             </motion.h1>
             
             <motion.p 
@@ -64,7 +61,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg md:text-xl text-neutral-dark max-w-xl"
             >
-              Transforme dados em decisões estratégicas. Nossa plataforma combina monitoramento de concorrentes, gestão de catálogos e insights de IA para maximizar seus resultados.
+              Análise inteligente de dados para Amazon e Mercado Livre
             </motion.p>
             
             <motion.div 
