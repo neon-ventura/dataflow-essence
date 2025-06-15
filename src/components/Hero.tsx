@@ -126,104 +126,11 @@ const Hero = () => {
               className="relative rounded-2xl overflow-hidden shadow-2xl"
             >
               <div className="relative bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="bg-neutral-light h-8 flex items-center px-4 gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-400"></div>
-                  <div className="ml-4 h-5 w-40 bg-neutral-dark/10 rounded-md"></div>
-                </div>
-                <div className="p-6 relative">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="h-6 w-32 bg-primary-blue/20 rounded-md"></div>
-                    <div className="flex gap-2">
-                      <div className="h-8 w-8 rounded-md bg-neutral-light flex items-center justify-center text-primary-blue">
-                        <MousePointer size={16} />
-                      </div>
-                      <div className="h-8 w-8 rounded-md bg-neutral-light flex items-center justify-center text-primary-blue">
-                        <BarChart4 size={16} />
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <motion.div 
-                      className="h-24 bg-gradient-to-br from-primary-blue/10 to-primary-light/10 rounded-lg p-4"
-                      whileHover={{ y: -5, boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }}
-                    >
-                      <div className="h-4 w-16 bg-white/60 rounded-md mb-2"></div>
-                      <div className="h-6 w-24 bg-white/80 rounded-md"></div>
-                      <motion.div 
-                        className="absolute bottom-3 right-3 text-primary-blue"
-                        animate={{ rotate: [0, 5, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      >
-                        <ArrowRight size={16} />
-                      </motion.div>
-                    </motion.div>
-                    <motion.div 
-                      className="h-24 bg-gradient-to-br from-accent-orange/10 to-accent-orange/20 rounded-lg p-4"
-                      whileHover={{ y: -5, boxShadow: "0 4px 20px rgba(0,0,0,0.1)" }}
-                    >
-                      <div className="h-4 w-16 bg-white/60 rounded-md mb-2"></div>
-                      <div className="h-6 w-24 bg-white/80 rounded-md"></div>
-                      <motion.div 
-                        className="absolute bottom-3 right-3 text-accent-orange"
-                        animate={{ rotate: [0, 5, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                      >
-                        <ArrowRight size={16} />
-                      </motion.div>
-                    </motion.div>
-                  </div>
-                  
-                  <div className="h-32 bg-neutral-light/50 rounded-lg w-full mb-4 flex items-center justify-center">
-                    <motion.div 
-                      className="h-24 w-2/3 bg-primary-blue/10 rounded-md"
-                      animate={{ 
-                        height: ['6rem', '5rem', '7rem', '6rem'],
-                      }}
-                      transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <div className="flex h-full items-end p-2 gap-2">
-                        <motion.div 
-                          className="bg-primary-blue/40 w-1/6 rounded-t-md"
-                          animate={{ height: ['40%', '60%', '50%'] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        />
-                        <motion.div 
-                          className="bg-primary-blue/60 w-1/6 rounded-t-md"
-                          animate={{ height: ['60%', '40%', '70%'] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                        />
-                        <motion.div 
-                          className="bg-primary-blue/80 w-1/6 rounded-t-md"
-                          animate={{ height: ['50%', '80%', '40%'] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                        />
-                        <motion.div 
-                          className="bg-primary-blue w-1/6 rounded-t-md"
-                          animate={{ height: ['70%', '50%', '90%'] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-                        />
-                        <motion.div 
-                          className="bg-primary-light w-1/6 rounded-t-md"
-                          animate={{ height: ['40%', '70%', '60%'] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                        />
-                        <motion.div 
-                          className="bg-primary-light/80 w-1/6 rounded-t-md"
-                          animate={{ height: ['60%', '30%', '50%'] }}
-                          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
-                        />
-                      </div>
-                    </motion.div>
-                  </div>
-                  
-                  <div className="flex gap-2">
-                    <div className="h-6 w-6 rounded-full bg-primary-blue/20"></div>
-                    <div className="h-6 w-20 bg-neutral-light rounded-md"></div>
-                  </div>
-                </div>
+                <img 
+                  src="/lovable-uploads/dfa81c44-1063-45b7-8144-fa5c9675e87e.png" 
+                  alt="Dashboard Anye - Visão geral dos indicadores do seu negócio"
+                  className="w-full h-auto object-cover"
+                />
               </div>
               
               <motion.div 
