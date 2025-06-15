@@ -50,6 +50,17 @@ const Footer = () => {
     { name: 'LinkedIn', icon: Linkedin, href: '#' },
   ];
 
+  const locations = [
+    {
+      name: 'Estados Unidos',
+      address: '2570 N. First Street, 2nd Floor San Jose, CA 95131',
+    },
+    {
+      name: 'Brasil',
+      address: 'Rua Castelo de Alcázar, 125 - Castelo Belo Horizonte - MG, 31330-310',
+    },
+  ];
+
   return (
     <footer className="bg-white border-t border-neutral-light">
       <div className="container mx-auto px-4 md:px-6 py-12">
@@ -69,6 +80,17 @@ const Footer = () => {
                   <social.icon size={20} />
                 </a>
               ))}
+            </div>
+            <div className="mt-8">
+              <h4 className="font-bold text-lg mb-4">Escritórios</h4>
+              <div className="space-y-4">
+                {locations.map(location => (
+                  <div key={location.name}>
+                    <p className="font-semibold text-neutral-dark">{location.name}</p>
+                    <p className="text-neutral-dark text-sm">{location.address}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           
