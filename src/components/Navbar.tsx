@@ -36,6 +36,9 @@ const Navbar = () => {
     name: 'Blog',
     href: '/blog'
   }, {
+    name: 'API e Documentação',
+    href: '/api-docs'
+  }, {
     name: 'Contato',
     href: '#contact'
   }];

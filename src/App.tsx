@@ -13,6 +13,7 @@ import MercadoTurbo from "./pages/competitors/MercadoTurbo";
 import RealTrends from "./pages/competitors/RealTrends";
 import ShoppingPrecos from "./pages/competitors/ShoppingPrecos";
 import Blog from "./pages/Blog";
+import ApiDocs from "./pages/ApiDocs";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/features" element={<Features />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/api-docs" element={<ApiDocs />} />
           <Route path="/anye-vs-avant-pro" element={<AvantPro />} />
           <Route path="/anye-vs-nubimetrics" element={<Nubimetrics />} />
           <Route path="/anye-vs-mercado-turbo" element={<MercadoTurbo />} />
