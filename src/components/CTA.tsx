@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CTA = () => {
   return (
@@ -24,12 +25,12 @@ const CTA = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#trial" className="btn-primary whitespace-nowrap flex items-center justify-center">
+              <Link to="/contato" className="btn-primary whitespace-nowrap flex items-center justify-center">
                 Teste Grátis por 14 dias
-              </a>
-              <a href="#demo" className="btn-accent whitespace-nowrap flex items-center justify-center">
+              </Link>
+              <Link to="/contato" className="btn-accent whitespace-nowrap flex items-center justify-center">
                 Solicitar Demo <ArrowRight className="ml-2 h-4 w-4" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
