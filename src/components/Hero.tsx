@@ -75,13 +75,13 @@ const Hero = () => {
             >
               <motion.a 
                 href="#signup" 
-                className="group relative overflow-hidden rounded-lg flex items-center gap-2 px-6 py-3 w-full sm:w-auto"
+                className="group relative overflow-hidden rounded-lg flex items-center gap-2 px-6 py-3 w-full sm:w-auto bg-primary-blue text-white font-medium transition-colors duration-200 hover:bg-primary-blue/90 focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <span className="relative z-10 flex items-center justify-center gap-2">
+                <span className="flex items-center justify-center gap-2">
                   <span>Começar Grátis</span>
                   <motion.div
                     animate={{ x: isHovered ? 5 : 0 }}
@@ -90,12 +90,6 @@ const Hero = () => {
                     <ChevronRight className="inline-block h-4 w-4" />
                   </motion.div>
                 </span>
-                <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-500"
-                  initial={{ x: '-100%' }}
-                  animate={{ x: isHovered ? '0%' : '-100%' }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
               </motion.a>
               
               <motion.a 
