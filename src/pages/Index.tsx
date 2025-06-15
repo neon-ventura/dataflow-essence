@@ -12,6 +12,7 @@ import Footer from '@/components/Footer';
 import CompetitorComparison from '@/components/CompetitorComparison';
 import Careers from '@/components/Careers';
 import BlogPreview from '@/components/BlogPreview';
+import Contact from '@/components/Contact';
 
 const Index = () => {
   return (
@@ -27,6 +28,7 @@ const Index = () => {
         <PricingPlans />
         <Careers />
         <BlogPreview />
+        <Contact />
         <CTA />
       </main>
       <Footer />
