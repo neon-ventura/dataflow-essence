@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, CircleDollarSign, Sparkles, X, HelpCircle, Plus, ChevronUp, ChevronDown } from 'lucide-react';
@@ -8,8 +7,9 @@ import { cn } from '@/lib/utils';
 const plans = [
   {
     id: 'basic',
-    name: 'Básico',
-    price: 'R$97',
+    name: 'Starter',
+    price: 'R$249,99',
+    yearlyPrice: 'R$167,49',
     description: 'Ideal para vendedores iniciantes no marketplace.',
     features: [
       'Painel de Fornecedores',
@@ -34,11 +34,12 @@ const plans = [
   },
   {
     id: 'pro',
-    name: 'Profissional',
-    price: 'R$197',
+    name: 'Padrão',
+    price: 'R$399,99',
+    yearlyPrice: 'R$267,99',
     description: 'Para vendedores que buscam resultados consistentes.',
     features: [
-      'Todas funcionalidades do Plano Básico',
+      'Todas funcionalidades do Plano Starter',
       'Inteligência Artificial para Respostas',
       'Avisos Inteligentes',
       'Suporte Prioritário',
@@ -61,10 +62,11 @@ const plans = [
   {
     id: 'enterprise',
     name: 'Enterprise',
-    price: 'Personalizado',
+    price: 'R$899,99',
+    yearlyPrice: 'R$602,99',
     description: 'Solução completa para grandes operações.',
     features: [
-      'Todas funcionalidades do Plano Profissional',
+      'Todas funcionalidades do Plano Padrão',
       'Dashboard Personalizado',
       'API Exclusiva',
       'Gerente de Sucesso Dedicado',
@@ -173,7 +175,7 @@ const PricingPlans = () => {
                   : "text-neutral-dark hover:text-primary-blue"
               )}
             >
-              Anual <span className="text-green-600 font-bold">(-20%)</span>
+              Anual <span className="text-green-600 font-bold">(-33%)</span>
             </button>
           </div>
         </div>
@@ -202,17 +204,17 @@ const PricingPlans = () => {
                 <h3 className={cn("text-xl font-bold mb-2", plan.color)}>{plan.name}</h3>
                 <div className="flex items-end gap-1 mb-3">
                   <span className="text-3xl font-extrabold">
-                    {activeTab === 'year' && plan.id !== 'enterprise' 
-                      ? plan.price.replace('R$', 'R$') + '/mês'
+                    {activeTab === 'year' && plan.yearlyPrice
+                      ? plan.yearlyPrice
                       : plan.price}
                   </span>
-                  {plan.id !== 'enterprise' && activeTab === 'month' && <span className="text-neutral-dark">/mês</span>}
+                  <span className="text-neutral-dark">/mês</span>
                 </div>
                 <p className="text-neutral-dark text-sm mb-4">{plan.description}</p>
                 
-                {activeTab === 'year' && plan.id !== 'enterprise' && (
+                {activeTab === 'year' && (
                   <div className="bg-green-50 text-green-700 text-xs font-medium rounded-md px-3 py-1 inline-block mb-3">
-                    Economia de {plan.id === 'basic' ? 'R$232' : 'R$472'} por ano
+                    Economia de {plan.id === 'basic' ? 'R$989,88' : plan.id === 'pro' ? 'R$1.583,88' : 'R$3.563,88'} por ano
                   </div>
                 )}
               </div>
