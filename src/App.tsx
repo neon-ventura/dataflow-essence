@@ -12,6 +12,7 @@ import Nubimetrics from "./pages/competitors/Nubimetrics";
 import MercadoTurbo from "./pages/competitors/MercadoTurbo";
 import RealTrends from "./pages/competitors/RealTrends";
 import ShoppingPrecos from "./pages/competitors/ShoppingPrecos";
+import Blog from "./pages/Blog";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/anye-vs-avant-pro" element={<AvantPro />} />
           <Route path="/anye-vs-nubimetrics" element={<Nubimetrics />} />
           <Route path="/anye-vs-mercado-turbo" element={<MercadoTurbo />} />

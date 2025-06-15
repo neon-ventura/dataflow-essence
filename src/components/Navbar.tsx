@@ -34,7 +34,7 @@ const Navbar = () => {
     href: '#compare'
   }, {
     name: 'Blog',
-    href: '#blog'
+    href: '/blog'
   }, {
     name: 'Contato',
     href: '#contact'
