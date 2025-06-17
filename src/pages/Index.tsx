@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import HomeFeatures from '@/components/HomeFeatures';
@@ -14,6 +15,19 @@ import Careers from '@/components/Careers';
 import BlogPreview from '@/components/BlogPreview';
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location.state]);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -23,8 +37,12 @@ const Index = () => {
         <CaseStudy />
         <Testimonials />
         <Awards />
-        <CompetitorComparison />
-        <PricingPlans />
+        <div id="compare">
+          <CompetitorComparison />
+        </div>
+        <div id="pricing">
+          <PricingPlans />
+        </div>
         <Careers />
         <BlogPreview />
         <CTA />
