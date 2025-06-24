@@ -78,6 +78,15 @@ const Hero = () => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
+                <a href="https://www.anye.com.br/contato"><span className="flex items-center justify-center gap-2">
+                  <span>Começar Grátis</span>
+                  <motion.div
+                    animate={{ x: isHovered ? 5 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronRight className="inline-block h-4 w-4" />
+                  </motion.div>
+                </span><a/>
                 <span className="flex items-center justify-center gap-2">
                   <span>Começar Grátis</span>
                   <motion.div
