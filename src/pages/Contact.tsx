@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -66,12 +65,37 @@ const Contact = () => {
             
             <div>
               <h2 className="text-3xl font-bold mb-6">Nossas Localizações</h2>
-              <div className="aspect-video rounded-lg overflow-hidden bg-neutral-light shadow-md">
-                <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                  <p className="text-neutral-dark italic">Mapa interativo em breve</p>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-primary-blue">Estados Unidos - San Jose, CA</h3>
+                  <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.1914670811148!2d-121.92740652359413!3d37.385304034498695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fcbdfe0a2f967%3A0x8f7541ae937457c!2s2570%20N%20First%20St%20%232nd%2C%20San%20Jose%2C%20CA%2095131%2C%20EUA!5e0!3m2!1spt-BR!2sbr!4v1750773258021!5m2!1spt-BR!2sbr" 
+                      width="100%" 
+                      height="100%" 
+                      style={{border:0}} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-primary-blue">Brasil - Belo Horizonte, MG</h3>
+                  <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.12319268375!2d-44.00086422387911!3d-19.877019336662713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6913ede58eabf%3A0x87ed290023d22704!2sRua%20Castelo%20de%20Alc%C3%A1zar%2C%20125%20-%20Castelo%2C%20Belo%20Horizonte%20-%20MG%2C%2031330-310!5e0!3m2!1spt-BR!2sbr!4v1750773337135!5m2!1spt-BR!2sbr" 
+                      width="100%" 
+                      height="100%" 
+                      style={{border:0}} 
+                      allowFullScreen 
+                      loading="lazy" 
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
                 </div>
               </div>
-               <p className="text-sm text-muted-foreground mt-2">Para um mapa interativo do Google, é necessária uma chave de API.</p>
             </div>
           </div>
 
