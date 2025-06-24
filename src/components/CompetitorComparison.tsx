@@ -8,21 +8,21 @@ const competitors = [
   {
     id: 'avant-pro',
     name: 'Avant Pro',
-    logo: 'https://images.unsplash.com/photo-1490810194309-344b3661ba39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+    logo: '/lovable-uploads/a6a0c105-5b60-4b29-8594-ead1eb1e5048.png',
     shortDescription: 'Plataforma completa mas com interface complexa e alto custo',
     path: '/anye-vs-avant-pro'
   },
   {
     id: 'nubimetrics',
     name: 'Nubimetrics',
-    logo: 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+    logo: '/lovable-uploads/7f13d4c3-d1e8-492d-9b58-eb29629044bd.png',
     shortDescription: 'Bons dados, mas sem automação inteligente e integração limitada',
     path: '/anye-vs-nubimetrics'
   },
   {
     id: 'mercado-turbo',
     name: 'Mercado Turbo',
-    logo: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+    logo: '/lovable-uploads/06944e6f-3c83-4561-92bf-c539a1999282.png',
     shortDescription: 'Foco em Mercado Livre, falta suporte para outros marketplaces',
     path: '/anye-vs-mercado-turbo'
   }
@@ -80,11 +80,11 @@ const CompetitorComparison = () => {
               className="bg-white rounded-xl p-6 shadow-lg relative overflow-hidden"
             >
               <div className="flex items-center mb-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden bg-neutral-light flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full overflow-hidden bg-white flex items-center justify-center shadow-sm border">
                   <img 
                     src={competitor.logo} 
                     alt={competitor.name}
-                    className="w-12 h-12 object-contain"
+                    className="w-10 h-10 object-contain"
                   />
                 </div>
                 <div className="ml-4">
