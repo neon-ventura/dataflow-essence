@@ -11,35 +11,35 @@ const Footer = () => {
       title: 'Produto',
       links: [
         { name: 'Funcionalidades', href: '/features' },
-        { name: 'Preços', href: '#pricing' },
-        { name: 'Casos de Uso', href: '#cases' },
-        { name: 'Integrações', href: '#integrations' },
+        { name: 'Preços', href: '/#pricing' },
+        { name: 'Casos de Uso', href: '/' },
+        { name: 'Integrações', href: '/' },
       ]
     },
     {
       title: 'Recursos',
       links: [
         { name: 'Blog', href: '/blog' },
-        { name: 'Guias', href: '#guides' },
-        { name: 'Webinars', href: '#webinars' },
+        { name: 'Guias', href: '/blog' },
+        { name: 'Webinars', href: '/blog' },
         { name: 'Documentação', href: '/api-docs' },
       ]
     },
     {
       title: 'Empresa',
       links: [
-        { name: 'Sobre', href: '#about' },
-        { name: 'Carreiras', href: '#careers' },
+        { name: 'Sobre', href: '/' },
+        { name: 'Carreiras', href: '/' },
         { name: 'Contato', href: '/contato' },
-        { name: 'Parceiros', href: '#partners' },
+        { name: 'Parceiros', href: '/' },
       ]
     },
     {
       title: 'Legal',
       links: [
-        { name: 'Termos', href: '#terms' },
-        { name: 'Privacidade', href: '#privacy' },
-        { name: 'Cookies', href: '#cookies' },
+        { name: 'Termos', href: '/' },
+        { name: 'Privacidade', href: '/' },
+        { name: 'Cookies', href: '/' },
       ]
     }
   ];
@@ -135,8 +135,8 @@ const Footer = () => {
               <a href="mailto:contato@anye.com" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
                 <Mail size={16} className="mr-2" /> contato@anye.com
               </a>
-              <a href="tel:+551199999999" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
-                <Phone size={16} className="mr-2" /> +55 11 9999-9999
+              <a href="tel:+5533988980067" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
+                <Phone size={16} className="mr-2" /> +55 33 98898-0067
               </a>
             </div>
           </div>

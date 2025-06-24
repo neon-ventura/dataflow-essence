@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, CircleDollarSign, Sparkles, X, HelpCircle, Plus, ChevronUp, ChevronDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const plans = [
@@ -249,13 +250,13 @@ const PricingPlans = () => {
                 </div>
               </div>
               
-              <Button 
-                className={cn(
-                  "w-full",
-                  plan.recommended ? "bg-primary-blue hover:bg-primary-blue/90" : "bg-neutral-100 text-foreground hover:bg-neutral-200"
-                )}
-              >
-                {plan.id === 'enterprise' ? 'Fale Conosco' : 'Assinar Agora'}
+              <Button asChild className={cn(
+                "w-full",
+                plan.recommended ? "bg-primary-blue hover:bg-primary-blue/90" : "bg-neutral-100 text-foreground hover:bg-neutral-200"
+              )}>
+                <Link to="/contato">
+                  {plan.id === 'enterprise' ? 'Fale Conosco' : 'Assinar Agora'}
+                </Link>
               </Button>
             </motion.div>
           ))}
@@ -310,8 +311,8 @@ const PricingPlans = () => {
                   <p className="text-neutral-dark mb-4">
                     Agende uma conversa com nossos especialistas para entender como o Anye pode transformar sua operação de marketplace.
                   </p>
-                  <Button className="bg-primary-blue hover:bg-primary-blue/90">
-                    Agendar Demonstração
+                  <Button asChild className="bg-primary-blue hover:bg-primary-blue/90">
+                    <Link to="/contato">Agendar Demonstração</Link>
                   </Button>
                 </div>
               </div>
