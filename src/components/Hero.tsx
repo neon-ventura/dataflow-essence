@@ -5,6 +5,13 @@ import { motion } from 'framer-motion';
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
   
+  const brandLogos = [
+    { name: 'Calpen', src: '/lovable-uploads/e6dceda1-1780-44b8-a826-b8e66cf82333.png' },
+    { name: 'Xtexx', src: '/lovable-uploads/88682ff4-e8fc-4d88-8efa-ab48dd004f9f.png' },
+    { name: 'Wietech', src: '/lovable-uploads/69bd3c08-95ca-4053-835c-c61078c69221.png' },
+    { name: 'Riffel', src: '/lovable-uploads/8c9a03eb-0345-45d6-b91d-a2bb062b3304.png' }
+  ];
+  
   return (
     <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -146,15 +153,19 @@ const Hero = () => {
         >
           <p className="text-neutral-dark font-medium">Confiado por grandes marcas:</p>
           <div className="flex flex-wrap justify-center items-center gap-8">
-            {['Brand 1', 'Brand 2', 'Brand 3', 'Brand 4'].map((brand, index) => (
+            {brandLogos.map((brand, index) => (
               <motion.div 
                 key={index}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 1 + (index * 0.2) }}
-                className="text-neutral-dark/50 font-bold text-lg"
+                className="flex items-center"
               >
-                {brand}
+                <img 
+                  src={brand.src} 
+                  alt={brand.name}
+                  className="h-8 md:h-10 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                />
               </motion.div>
             ))}
           </div>
