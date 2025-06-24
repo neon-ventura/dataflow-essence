@@ -62,8 +62,8 @@ const Navbar = () => {
     name: 'Blog',
     href: '/blog'
   }, {
-    name: 'API e Documentação',
-    href: '/api-docs'
+    name: 'Funcionalidades',
+    href: '/features'
   }, {
     name: 'Contato',
     href: '/contato'

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -22,7 +21,7 @@ const Footer = () => {
         { name: 'Blog', href: '/blog' },
         { name: 'Guias', href: '/blog' },
         { name: 'Webinars', href: '/blog' },
-        { name: 'Documentação', href: '/api-docs' },
+        { name: 'API e Documentação', href: '/api-docs' },
       ]
     },
     {
