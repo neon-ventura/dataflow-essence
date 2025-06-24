@@ -1,20 +1,21 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote, Star, Users, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-
 const CaseStudy = () => {
-  return (
-    <section id="case-study" className="py-20 bg-gradient-to-r from-primary-blue/5 to-primary-blue/10">
+  return <section id="case-study" className="py-20 bg-gradient-to-r from-primary-blue/5 to-primary-blue/10">
       <div className="container mx-auto px-4 md:px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="max-w-7xl mx-auto"
-        >
+        <motion.div initial={{
+        opacity: 0,
+        y: 20
+      }} whileInView={{
+        opacity: 1,
+        y: 0
+      }} viewport={{
+        once: true
+      }} transition={{
+        duration: 0.6
+      }} className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 rounded-full bg-green-500/10 px-4 py-1.5 text-sm font-medium text-green-600 mb-4">
@@ -33,11 +34,7 @@ const CaseStudy = () => {
                 </p>
                 
                 <div className="mt-4 flex items-center">
-                  <img 
-                    src="https://randomuser.me/api/portraits/men/32.jpg" 
-                    alt="Ricardo Mendes" 
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
+                  <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ricardo Mendes" className="w-12 h-12 rounded-full mr-4" />
                   <div>
                     <h4 className="font-bold">Ricardo Mendes</h4>
                     <p className="text-sm text-neutral-dark">CEO da AutoParts BR</p>
@@ -60,19 +57,12 @@ const CaseStudy = () => {
                 </div>
               </div>
               
-              <Button className="bg-green-600 hover:bg-green-700">
-                <span>Ver Estudo Completo</span>
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              
             </div>
             
             <div className="order-1 lg:order-2 relative">
               <div className="relative z-10 rounded-xl overflow-hidden shadow-xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Equipe AutoParts BR" 
-                  className="w-full h-auto"
-                />
+                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop" alt="Equipe AutoParts BR" className="w-full h-auto" />
               </div>
               
               <div className="absolute -bottom-6 -right-6 bg-white rounded-lg p-4 shadow-lg z-20">
@@ -87,8 +77,6 @@ const CaseStudy = () => {
           </div>
         </motion.div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CaseStudy;
