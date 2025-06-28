@@ -28,6 +28,11 @@ const Navbar = () => {
     };
   }, []);
 
+  // Scroll to top when navigating to different pages
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const handleHomeClick = () => {
     if (location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -49,12 +54,24 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  const handlePricingClick = () => {
+    if (location.pathname === '/') {
+      const element = document.getElementById('pricing');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      navigate('/', { state: { scrollTo: 'pricing' } });
+    }
+    setIsOpen(false);
+  };
+
   const navItems = [{
     name: 'Home',
     action: handleHomeClick
   }, {
     name: 'Preços',
-    href: '#pricing'
+    action: handlePricingClick
   }, {
     name: 'Comparativos',
     action: handleComparativosClick

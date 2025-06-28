@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Calculator, DollarSign, Timer, Users, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const formatCurrency = (value: number): string => {
   return new Intl.NumberFormat('pt-BR', {
@@ -18,10 +19,22 @@ const DarkSavingsCalculator: React.FC = () => {
   const [employees, setEmployees] = useState(1);
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
   const [hourlyRate, setHourlyRate] = useState(30);
+  const location = useLocation();
   
   const [monthlySavings, setMonthlySavings] = useState(0);
   const [yearlyROI, setYearlyROI] = useState(0);
   const [timePercentage, setTimePercentage] = useState(0);
+
+  const handlePricingClick = () => {
+    if (location.pathname === '/') {
+      const element = document.getElementById('pricing');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/#pricing';
+    }
+  };
   
   // Calculate savings based on inputs
   useEffect(() => {
@@ -135,12 +148,10 @@ const DarkSavingsCalculator: React.FC = () => {
           
           <div className="mt-8">
             <Button 
-              asChild
+              onClick={handlePricingClick}
               className="w-full bg-blue-600 hover:bg-blue-700 text-base py-6"
             >
-              <Link to="/#pricing">
-                Ver Planos e Economizar
-              </Link>
+              Ver Planos e Economizar
             </Button>
           </div>
         </div>

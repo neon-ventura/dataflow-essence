@@ -4,16 +4,28 @@ import { motion } from 'framer-motion';
 import { Calculator, TrendingUp, DollarSign, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const ROISection = () => {
   const [monthlyRevenue, setMonthlyRevenue] = useState(50000);
   const [currentCosts, setCurrentCosts] = useState(5000);
+  const location = useLocation();
   
   // Calculate savings and ROI
   const monthlySavings = currentCosts * 0.3; // 30% reduction in operational costs
   const annualSavings = monthlySavings * 12;
   const roiPercentage = ((annualSavings - 3588) / 3588) * 100; // Anye cost vs savings
+
+  const handlePricingClick = () => {
+    if (location.pathname === '/') {
+      const element = document.getElementById('pricing');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      window.location.href = '/#pricing';
+    }
+  };
   
   return (
     <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl mb-16">
@@ -127,12 +139,10 @@ const ROISection = () => {
             *Valores baseados em médias de clientes que reduziram custos operacionais em 30%
           </p>
           <Button 
-            asChild
+            onClick={handlePricingClick}
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
           >
-            <Link to="https://www.anye.com.br/#pricing">
-              Ver Planos e Economizar
-            </Link>
+            Ver Planos e Economizar
           </Button>
         </motion.div>
       </div>
