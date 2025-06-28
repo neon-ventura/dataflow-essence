@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, Play } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -53,9 +54,11 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-none h-12 px-6">
-              <span>Agendar Demonstração</span>
-              <ArrowRight className="ml-2 h-4 w-4" />
+            <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-none h-12 px-6">
+              <Link to="/contato">
+                <span>Agendar Demonstração</span>
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
             
             <Button variant="outline" className="bg-white/10 text-blue-300 border-blue-400/30 hover:bg-white/20 h-12 px-6 gap-2">
