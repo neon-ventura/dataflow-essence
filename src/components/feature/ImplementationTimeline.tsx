@@ -77,7 +77,7 @@ const ImplementationTimeline = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-16 text-center"
         >
-          <Link to="/signup">
+          <Link to="/contato">
             <Button className="bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white border-none h-12 px-8 text-lg rounded-full shadow-lg shadow-emerald-500/20">
               <span>Vamos começar?</span>
               <ArrowRight className="ml-2 h-5 w-5" />
