@@ -1,11 +1,10 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { Link } from 'react-router-dom';
 
 const FeatureCTA = () => {
-  const { navigateToTop } = useScrollToTop();
-
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -24,18 +23,11 @@ const FeatureCTA = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              onClick={() => navigateToTop('/contato')}
-              className="bg-white text-blue-900 hover:bg-blue-50"
-            >
-              Solicitar demonstração
+            <Button asChild className="bg-white text-blue-900 hover:bg-blue-50">
+              <Link to="/contato">Solicitar demonstração</Link>
             </Button>
-            <Button 
-              onClick={() => navigateToTop('/contato')}
-              variant="outline" 
-              className="text-white border-white/30 hover:bg-white/10"
-            >
-              Falar com especialista
+            <Button asChild variant="outline" className="text-white border-white/30 hover:bg-white/10">
+              <Link to="/contato">Falar com especialista</Link>
             </Button>
           </div>
         </div>

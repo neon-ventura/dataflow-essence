@@ -3,8 +3,7 @@ import { Calculator, DollarSign, Timer, Users, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { useLocation } from 'react-router-dom';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { Link } from 'react-router-dom';
 
 const formatCurrency = (value: number): string => {
   return new Intl.NumberFormat('pt-BR', {
@@ -19,20 +18,10 @@ const DarkSavingsCalculator: React.FC = () => {
   const [employees, setEmployees] = useState(1);
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
   const [hourlyRate, setHourlyRate] = useState(30);
-  const location = useLocation();
-  const { scrollToElement } = useScrollToTop();
   
   const [monthlySavings, setMonthlySavings] = useState(0);
   const [yearlyROI, setYearlyROI] = useState(0);
   const [timePercentage, setTimePercentage] = useState(0);
-
-  const handlePricingClick = () => {
-    if (location.pathname === '/') {
-      scrollToElement('pricing');
-    } else {
-      window.location.href = '/#pricing';
-    }
-  };
   
   // Calculate savings based on inputs
   useEffect(() => {
@@ -146,10 +135,12 @@ const DarkSavingsCalculator: React.FC = () => {
           
           <div className="mt-8">
             <Button 
-              onClick={handlePricingClick}
+              asChild
               className="w-full bg-blue-600 hover:bg-blue-700 text-base py-6"
             >
-              Ver Planos e Economizar
+              <Link to="/#pricing">
+                Ver Planos e Economizar
+              </Link>
             </Button>
           </div>
         </div>

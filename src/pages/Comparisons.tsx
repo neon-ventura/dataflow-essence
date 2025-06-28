@@ -4,11 +4,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, XCircle, Star, Users, DollarSign, Zap } from 'lucide-react';
-import { useScrollToTop } from '@/hooks/useScrollToTop';
+import { Link } from 'react-router-dom';
 
 const Comparisons = () => {
-  const { navigateToTop } = useScrollToTop();
-
   const competitors = [
     {
       id: 'avant-pro',
@@ -214,13 +212,13 @@ const Comparisons = () => {
                         <p className="text-sm text-neutral-dark mb-3">
                           Veja a comparação detalhada e descubra por que a Anye é superior:
                         </p>
-                        <button 
-                          onClick={() => navigateToTop(`/anye-vs-${competitor.id.replace('-', '-')}`)}
+                        <Link 
+                          to={`/anye-vs-${competitor.id.replace('-', '-')}`}
                           className="inline-flex items-center gap-2 text-primary-blue hover:text-primary-light transition-colors font-medium"
                         >
                           Ver comparação completa
                           <ArrowRight size={16} />
-                        </button>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -248,12 +246,12 @@ const Comparisons = () => {
                 >
                   Começar Grátis
                 </a>
-                <button 
-                  onClick={() => navigateToTop('/contato')}
+                <Link 
+                  to="/contato"
                   className="border border-white/30 hover:bg-white/10 transition-colors px-8 py-3 rounded-lg font-medium"
                 >
                   Falar com Especialista
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>
