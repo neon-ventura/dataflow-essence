@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Calculator, DollarSign, Timer, Users, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 const formatCurrency = (value: number): string => {
   return new Intl.NumberFormat('pt-BR', {
@@ -20,6 +20,7 @@ const DarkSavingsCalculator: React.FC = () => {
   const [hoursPerWeek, setHoursPerWeek] = useState(10);
   const [hourlyRate, setHourlyRate] = useState(30);
   const location = useLocation();
+  const { scrollToElement } = useScrollToTop();
   
   const [monthlySavings, setMonthlySavings] = useState(0);
   const [yearlyROI, setYearlyROI] = useState(0);
@@ -27,10 +28,7 @@ const DarkSavingsCalculator: React.FC = () => {
 
   const handlePricingClick = () => {
     if (location.pathname === '/') {
-      const element = document.getElementById('pricing');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      scrollToElement('pricing');
     } else {
       window.location.href = '/#pricing';
     }

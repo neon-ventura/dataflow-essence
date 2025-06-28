@@ -29,6 +29,11 @@ export const useScrollToTop = () => {
     }
   }, [navigate]);
 
+  const navigateToTop = useCallback((path: string) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  }, [navigate]);
+
   const instantScrollToTop = useCallback(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -37,6 +42,7 @@ export const useScrollToTop = () => {
     scrollToTop,
     scrollToElement,
     navigateAndScroll,
+    navigateToTop,
     instantScrollToTop
   };
 };

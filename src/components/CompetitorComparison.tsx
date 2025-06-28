@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, XCircle, LineChart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 const competitors = [
   {
@@ -28,6 +30,8 @@ const competitors = [
 ];
 
 const CompetitorComparison = () => {
+  const { navigateToTop } = useScrollToTop();
+
   return (
     <section className="py-20 bg-gradient-to-r from-primary-blue/5 to-primary-light/5 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -114,26 +118,26 @@ const CompetitorComparison = () => {
               </div>
               
               <div className="mt-auto">
-                <Link 
-                  to={competitor.path}
+                <button 
+                  onClick={() => navigateToTop(competitor.path)}
                   className="flex items-center text-primary-blue hover:text-primary-light transition-colors"
                 >
                   <span>Ver comparativo completo</span>
                   <ArrowRight size={16} className="ml-1" />
-                </Link>
+                </button>
               </div>
             </motion.div>
           ))}
         </div>
         
         <div className="mt-10 text-center">
-          <Link 
-            to="/comparisons"
+          <button 
+            onClick={() => navigateToTop('/comparisons')}
             className="inline-flex items-center gap-2 text-primary-blue hover:text-primary-light transition-colors"
           >
             Ver todos os comparativos
             <ArrowRight size={16} />
-          </Link>
+          </button>
         </div>
       </div>
     </section>

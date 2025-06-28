@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ChevronRight, ArrowRight, MousePointer, BarChart4, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
