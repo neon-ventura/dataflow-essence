@@ -14,10 +14,6 @@ import { ArrowRight } from 'lucide-react';
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   
-  const handleContactClick = () => {
-    window.scrollTo(0, 0);
-  };
-  
   return (
     <section id="features" className="py-12 md:py-24 overflow-hidden relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-slate-900/20 via-background to-background -z-10"></div>
@@ -47,7 +43,7 @@ const Features = () => {
             asChild
             className="bg-gradient-to-r from-blue-600 to-purple-500 hover:opacity-90 text-white border-none h-12 px-8 text-base rounded-xl"
           >
-            <Link to="/contato" onClick={handleContactClick}>
+            <Link to="/contato">
               Vamos começar? <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

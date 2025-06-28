@@ -2,13 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useScrollToTop } from '@/hooks/useScrollToTop';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const navigate = useNavigate();
   const location = useLocation();
+  const { scrollToElement, navigateAndScroll } = useScrollToTop();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -28,40 +29,25 @@ const Navbar = () => {
     };
   }, []);
 
-  // Scroll to top when navigating to different pages
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
   const handleHomeClick = () => {
-    if (location.pathname === '/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate('/');
-    }
+    navigateAndScroll('/');
     setIsOpen(false);
   };
 
   const handleComparativosClick = () => {
     if (location.pathname === '/') {
-      const element = document.getElementById('compare');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      scrollToElement('compare');
     } else {
-      navigate('/', { state: { scrollTo: 'compare' } });
+      navigateAndScroll('/', 'compare');
     }
     setIsOpen(false);
   };
 
   const handlePricingClick = () => {
     if (location.pathname === '/') {
-      const element = document.getElementById('pricing');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      scrollToElement('pricing');
     } else {
-      navigate('/', { state: { scrollTo: 'pricing' } });
+      navigateAndScroll('/', 'pricing');
     }
     setIsOpen(false);
   };
@@ -110,14 +96,10 @@ const Navbar = () => {
                   </button>
                 );
               }
-              return item.href.startsWith('/') ? (
+              return (
                 <Link key={item.name} to={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1">
                   {item.name}
                 </Link>
-              ) : (
-                <a key={item.name} href={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1">
-                  {item.name}
-                </a>
               );
             })}
           </div>
@@ -151,14 +133,10 @@ const Navbar = () => {
                   </button>
                 );
               }
-              return item.href.startsWith('/') ? (
+              return (
                 <Link key={item.name} to={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2" onClick={() => setIsOpen(false)}>
                   {item.name}
                 </Link>
-              ) : (
-                <a key={item.name} href={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2" onClick={() => setIsOpen(false)}>
-                  {item.name}
-                </a>
               );
             })}
             <div className="flex flex-col space-y-3 px-4 pt-4 border-t border-neutral-light">
