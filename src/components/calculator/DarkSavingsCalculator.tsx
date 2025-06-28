@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { Calculator, DollarSign, Timer, Users, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
+import { Link } from 'react-router-dom';
 
 const formatCurrency = (value: number): string => {
   return new Intl.NumberFormat('pt-BR', {
@@ -134,8 +134,13 @@ const DarkSavingsCalculator: React.FC = () => {
           </div>
           
           <div className="mt-8">
-            <Button className="w-full bg-blue-600 hover:bg-blue-700 text-base py-6">
-              Ver Planos e Economizar
+            <Button 
+              asChild
+              className="w-full bg-blue-600 hover:bg-blue-700 text-base py-6"
+            >
+              <Link to="/#pricing">
+                Ver Planos e Economizar
+              </Link>
             </Button>
           </div>
         </div>
