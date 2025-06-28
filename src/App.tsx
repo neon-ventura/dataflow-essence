@@ -25,6 +25,7 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    // Always scroll to top when changing routes
     window.scrollTo(0, 0);
   }, [pathname]);
 

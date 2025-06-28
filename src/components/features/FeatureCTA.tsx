@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
 const FeatureCTA = () => {
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
@@ -24,10 +28,10 @@ const FeatureCTA = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="bg-white text-blue-900 hover:bg-blue-50">
-              <Link to="/contato">Solicitar demonstração</Link>
+              <Link to="/contato" onClick={handleLinkClick}>Solicitar demonstração</Link>
             </Button>
             <Button asChild variant="outline" className="text-white border-white/30 hover:bg-white/10">
-              <Link to="/contato">Falar com especialista</Link>
+              <Link to="/contato" onClick={handleLinkClick}>Falar com especialista</Link>
             </Button>
           </div>
         </div>

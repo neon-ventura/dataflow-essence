@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden bg-slate-900">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(26,115,232,0.15),_transparent_50%)]"></div>
@@ -55,7 +59,7 @@ const HeroSection = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white border-none h-12 px-6">
-              <Link to="/contato">
+              <Link to="/contato" onClick={handleLinkClick}>
                 <span>Agendar Demonstração</span>
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>

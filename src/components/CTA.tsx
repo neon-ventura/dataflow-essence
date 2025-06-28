@@ -25,10 +25,18 @@ const CTA = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contato" className="btn-primary whitespace-nowrap flex items-center justify-center">
+              <Link 
+                to="/contato" 
+                className="btn-primary whitespace-nowrap flex items-center justify-center"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Teste Grátis por 14 dias
               </Link>
-              <Link to="/contato" className="btn-accent whitespace-nowrap flex items-center justify-center">
+              <Link 
+                to="/contato" 
+                className="btn-accent whitespace-nowrap flex items-center justify-center"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Solicitar Demo <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
