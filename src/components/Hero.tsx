@@ -7,8 +7,8 @@ const Hero = () => {
   
   const brandLogos = [
     {
-      name: 'Calpen',
-      src: '/lovable-uploads/e6dceda1-1780-44b8-a826-b8e66cf82333.png'
+      name: 'Riffel',
+      src: '/lovable-uploads/8c9a03eb-0345-45d6-b91d-a2bb062b3304.png'
     },
     {
       name: 'Xtexx', 
@@ -19,9 +19,10 @@ const Hero = () => {
       src: '/lovable-uploads/69bd3c08-95ca-4053-835c-c61078c69221.png'
     },
     {
-      name: 'Riffel',
-      src: '/lovable-uploads/8c9a03eb-0345-45d6-b91d-a2bb062b3304.png'
+      name: 'Calpen',
+      src: '/lovable-uploads/e6dceda1-1780-44b8-a826-b8e66cf82333.png'
     }
+    
   ];
 
   return (

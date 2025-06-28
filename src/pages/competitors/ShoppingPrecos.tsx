@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import ComparisonHero from '@/components/ComparisonHero';
@@ -8,7 +7,7 @@ import Footer from '@/components/Footer';
 
 const shoppingPrecosData = {
   name: 'Shopping de Preços',
-  logo: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+  logo: '/lovable-uploads/88682ff4-e8fc-4d88-8efa-ab48dd004f9f.png',
   description: 'Compare a Anye com o Shopping de Preços. Descubra como nossa solução oferece análises mais profundas, automação inteligente e uma experiência superior para vendedores online.'
 };
 

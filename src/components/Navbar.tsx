@@ -1,8 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { ScrollToTopLink } from './ui/ScrollToTopLink';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -94,9 +94,9 @@ const Navbar = () => {
                 );
               }
               return item.href.startsWith('/') ? (
-                <Link key={item.name} to={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1">
+                <ScrollToTopLink key={item.name} to={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1">
                   {item.name}
-                </Link>
+                </ScrollToTopLink>
               ) : (
                 <a key={item.name} href={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors duration-300 animated-border py-1">
                   {item.name}
@@ -106,9 +106,14 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/contato" className="px-5 py-2 rounded-lg bg-primary-blue text-white hover:bg-primary-light transition-colors duration-300">
+            <a 
+              href="https://app.anye.com.br/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2 rounded-lg bg-primary-blue text-white hover:bg-primary-light transition-colors duration-300"
+            >
               Começar Agora
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -135,9 +140,9 @@ const Navbar = () => {
                 );
               }
               return item.href.startsWith('/') ? (
-                <Link key={item.name} to={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2" onClick={() => setIsOpen(false)}>
+                <ScrollToTopLink key={item.name} to={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2" onClick={() => setIsOpen(false)}>
                   {item.name}
-                </Link>
+                </ScrollToTopLink>
               ) : (
                 <a key={item.name} href={item.href} className="text-neutral-dark hover:text-primary-blue transition-colors px-4 py-2" onClick={() => setIsOpen(false)}>
                   {item.name}
@@ -145,9 +150,15 @@ const Navbar = () => {
               );
             })}
             <div className="flex flex-col space-y-3 px-4 pt-4 border-t border-neutral-light">
-              <Link to="/contato" className="bg-primary-blue text-white hover:bg-primary-light transition-colors py-2 px-4 rounded-lg text-center" onClick={() => setIsOpen(false)}>
+              <a 
+                href="https://app.anye.com.br/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-blue text-white hover:bg-primary-light transition-colors py-2 px-4 rounded-lg text-center"
+                onClick={() => setIsOpen(false)}
+              >
                 Começar Agora
-              </Link>
+              </a>
             </div>
           </div>
         </div>

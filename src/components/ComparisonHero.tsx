@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Check, Shield, Zap, Award } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from './ui/ScrollToTopLink';
 
 interface ComparisonHeroProps {
   competitor: {
@@ -31,10 +30,10 @@ const ComparisonHero: React.FC<ComparisonHeroProps> = ({ competitor }) => {
       />
       
       <div className="container mx-auto px-4 md:px-6">
-        <Link to="/" className="inline-flex items-center gap-1 text-neutral-dark hover:text-primary-blue transition-colors mb-8">
+        <ScrollToTopLink to="/" className="inline-flex items-center gap-1 text-neutral-dark hover:text-primary-blue transition-colors mb-8">
           <ArrowLeft size={16} />
           <span>Voltar para a página inicial</span>
-        </Link>
+        </ScrollToTopLink>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
@@ -105,7 +104,12 @@ const ComparisonHero: React.FC<ComparisonHeroProps> = ({ competitor }) => {
                 <span>Ver comparativo detalhado</span>
               </a>
               
-              <a href="#signup" className="btn-accent flex items-center justify-center gap-2">
+              <a 
+                href="https://app.anye.com.br/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-accent flex items-center justify-center gap-2"
+              >
                 <Award size={18} />
                 <span>Experimentar a Anye grátis</span>
               </a>

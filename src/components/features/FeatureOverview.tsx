@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { cn } from '@/lib/utils';
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from '../ui/ScrollToTopLink';
 
 const FeatureOverview = ({ activeFeatureData, showFeatureDetails }) => {
   return (
@@ -67,10 +66,10 @@ const FeatureOverview = ({ activeFeatureData, showFeatureDetails }) => {
           <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
         
-        <Link to="/features" className="mt-2 text-sm text-muted-foreground inline-flex items-center hover:text-primary transition-colors">
+        <ScrollToTopLink to="/features" className="mt-2 text-sm text-muted-foreground inline-flex items-center hover:text-primary transition-colors">
           <span>Ver todas as funcionalidades</span>
           <ArrowRight className="ml-1 h-3 w-3" />
-        </Link>
+        </ScrollToTopLink>
       </div>
     </div>
   );

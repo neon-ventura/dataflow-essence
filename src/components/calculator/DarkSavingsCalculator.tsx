@@ -3,7 +3,7 @@ import { Calculator, DollarSign, Timer, Users, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { Link } from 'react-router-dom';
+import { HomeAnchorLink } from '../ui/HomeAnchorLink';
 
 const formatCurrency = (value: number): string => {
   return new Intl.NumberFormat('pt-BR', {
@@ -138,9 +138,9 @@ const DarkSavingsCalculator: React.FC = () => {
               asChild
               className="w-full bg-blue-600 hover:bg-blue-700 text-base py-6"
             >
-              <Link to="/#pricing">
+              <HomeAnchorLink to="/#pricing">
                 Ver Planos e Economizar
-              </Link>
+              </HomeAnchorLink>
             </Button>
           </div>
         </div>

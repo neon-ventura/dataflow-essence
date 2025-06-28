@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import ComparisonHero from '@/components/ComparisonHero';
@@ -8,7 +7,7 @@ import Footer from '@/components/Footer';
 
 const mercadoTurboData = {
   name: 'Mercado Turbo',
-  logo: 'https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+  logo: '/lovable-uploads/06944e6f-3c83-4561-92bf-c539a1999282.png',
   description: 'Compare a Anye com o Mercado Turbo e descubra como nossa solução oferece cobertura multi-marketplace, análises mais avançadas e mais recursos por um preço justo.'
 };
 

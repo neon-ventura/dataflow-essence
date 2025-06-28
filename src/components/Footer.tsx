@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from './ui/ScrollToTopLink';
+import { HomeAnchorLink } from './ui/HomeAnchorLink';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -44,10 +45,10 @@ const Footer = () => {
   ];
   
   const socialLinks = [
-    { name: 'Facebook', icon: Facebook, href: '#' },
-    { name: 'Twitter', icon: Twitter, href: '#' },
-    { name: 'Instagram', icon: Instagram, href: '#' },
-    { name: 'LinkedIn', icon: Linkedin, href: '#' },
+    { name: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/anyecombr' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/anyecombr' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/anyecombr' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/anyecombr' },
   ];
 
   const locations = [
@@ -74,6 +75,8 @@ const Footer = () => {
                 <a 
                   key={social.name}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-neutral-dark hover:text-primary-blue transition-colors"
                   aria-label={social.name}
                 >
@@ -100,13 +103,20 @@ const Footer = () => {
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.name}>
-                    {link.href.startsWith('/') ? (
-                       <Link
+                    {link.href.startsWith('/#') ? (
+                       <HomeAnchorLink
                          to={link.href}
                          className="text-neutral-dark hover:text-primary-blue transition-colors"
                        >
                          {link.name}
-                       </Link>
+                       </HomeAnchorLink>
+                     ) : link.href.startsWith('/') ? (
+                       <ScrollToTopLink
+                         to={link.href}
+                         className="text-neutral-dark hover:text-primary-blue transition-colors"
+                       >
+                         {link.name}
+                       </ScrollToTopLink>
                      ) : (
                        <a 
                          href={link.href}
@@ -131,8 +141,8 @@ const Footer = () => {
           
           <div className="flex md:justify-end">
             <div className="flex items-start md:items-center space-y-0 md:space-x-6">
-              <a href="mailto:contato@anye.com" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
-                <Mail size={16} className="mr-2" /> contato@anye.com
+              <a href="mailto:contato@anye.com.br" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
+                <Mail size={16} className="mr-2" /> contato@anye.com.br
               </a>
               <a href="tel:+5533988980067" className="text-neutral-dark hover:text-primary-blue transition-colors text-sm flex items-center">
                 <Phone size={16} className="mr-2" /> +55 33 98898-0067

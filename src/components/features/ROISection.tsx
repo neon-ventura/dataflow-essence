@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calculator, TrendingUp, DollarSign, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Link } from 'react-router-dom';
+import { HomeAnchorLink } from '../ui/HomeAnchorLink';
 
 const ROISection = () => {
   const [monthlyRevenue, setMonthlyRevenue] = useState(50000);
@@ -130,9 +129,9 @@ const ROISection = () => {
             asChild
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
           >
-            <Link to="https://www.anye.com.br/#pricing">
+            <HomeAnchorLink to="/#pricing">
               Ver Planos e Economizar
-            </Link>
+            </HomeAnchorLink>
           </Button>
         </motion.div>
       </div>

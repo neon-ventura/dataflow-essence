@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, CircleDollarSign, Sparkles, X, HelpCircle, Plus, ChevronUp, ChevronDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from '../ui/ScrollToTopLink';
 import { cn } from '@/lib/utils';
 
 const plans = [
@@ -74,7 +74,6 @@ const plans = [
       'Usuários Ilimitados',
       'Integrações personalizadas',
       'Desenvolvimento de features exclusivas',
-      'Treinamento presencial da equipe',
       'Consultoria estratégica mensal',
       'SLA garantido por contrato'
     ],
@@ -254,9 +253,9 @@ const PricingPlans = () => {
                 "w-full",
                 plan.recommended ? "bg-primary-blue hover:bg-primary-blue/90" : "bg-neutral-100 text-foreground hover:bg-neutral-200"
               )}>
-                <Link to="/contato">
+                <ScrollToTopLink to="/contato">
                   {plan.id === 'enterprise' ? 'Fale Conosco' : 'Assinar Agora'}
-                </Link>
+                </ScrollToTopLink>
               </Button>
             </motion.div>
           ))}
@@ -312,7 +311,7 @@ const PricingPlans = () => {
                     Agende uma conversa com nossos especialistas para entender como o Anye pode transformar sua operação de marketplace.
                   </p>
                   <Button asChild className="bg-primary-blue hover:bg-primary-blue/90">
-                    <Link to="/contato">Agendar Demonstração</Link>
+                    <ScrollToTopLink to="/contato">Agendar Demonstração</ScrollToTopLink>
                   </Button>
                 </div>
               </div>

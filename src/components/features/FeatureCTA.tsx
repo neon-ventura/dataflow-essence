@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from '../ui/ScrollToTopLink';
 
 const FeatureCTA = () => {
   return (
@@ -24,10 +23,10 @@ const FeatureCTA = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild className="bg-white text-blue-900 hover:bg-blue-50">
-              <Link to="/contato">Solicitar demonstração</Link>
+              <ScrollToTopLink to="/contato">Solicitar demonstração</ScrollToTopLink>
             </Button>
             <Button asChild variant="outline" className="text-white border-white/30 hover:bg-white/10">
-              <Link to="/contato">Falar com especialista</Link>
+              <ScrollToTopLink to="/contato">Falar com especialista</ScrollToTopLink>
             </Button>
           </div>
         </div>

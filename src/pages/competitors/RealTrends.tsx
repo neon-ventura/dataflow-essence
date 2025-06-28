@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import ComparisonHero from '@/components/ComparisonHero';
@@ -8,7 +7,7 @@ import Footer from '@/components/Footer';
 
 const realTrendsData = {
   name: 'Real Trends',
-  logo: 'https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+  logo: '/lovable-uploads/8c9a03eb-0345-45d6-b91d-a2bb062b3304.png',
   description: 'Veja como a Anye supera a Real Trends em recursos de IA, facilidade de uso, e integração completa com múltiplos marketplaces brasileiros.'
 };
 

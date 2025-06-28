@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -44,7 +43,7 @@ const Contact = () => {
                 ))}
                 <div className="flex items-center pt-4">
                     <Mail className="text-primary-blue w-5 h-5 mr-4" />
-                    <a href="mailto:contato@anye.com" className="text-neutral-dark hover:text-primary-blue transition-colors">contato@anye.com</a>
+                    <a href="mailto:contato@anye.com.br" className="text-neutral-dark hover:text-primary-blue transition-colors">contato@anye.com.br</a>
                 </div>
                 <div className="flex items-center">
                     <Phone className="text-primary-blue w-5 h-5 mr-4" />

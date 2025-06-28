@@ -1,10 +1,9 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, XCircle, Star, Users, DollarSign, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from '@/components/ui/ScrollToTopLink';
 
 const Comparisons = () => {
   const competitors = [
@@ -180,7 +179,7 @@ const Comparisons = () => {
                     {/* Anye Advantages */}
                     <div className="p-8 bg-gradient-to-br from-primary-blue/5 to-primary-light/5">
                       <div className="flex items-center mb-6">
-                        <div className="w-16 h-16 rounded-full overflow-hidden bg-primary-blue flex items-center justify-center mr-4">
+                        <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center mr-4" style={{ backgroundColor: '#FBFBFB' }}>
                           <img 
                             src="/lovable-uploads/235271d7-533d-4ed6-b58a-03c7ab7b4a3b.png" 
                             alt="Anye"
@@ -212,13 +211,13 @@ const Comparisons = () => {
                         <p className="text-sm text-neutral-dark mb-3">
                           Veja a comparação detalhada e descubra por que a Anye é superior:
                         </p>
-                        <Link 
+                        <ScrollToTopLink 
                           to={`/anye-vs-${competitor.id.replace('-', '-')}`}
                           className="inline-flex items-center gap-2 text-primary-blue hover:text-primary-light transition-colors font-medium"
                         >
                           Ver comparação completa
                           <ArrowRight size={16} />
-                        </Link>
+                        </ScrollToTopLink>
                       </div>
                     </div>
                   </div>
@@ -246,12 +245,12 @@ const Comparisons = () => {
                 >
                   Começar Grátis
                 </a>
-                <Link 
+                <ScrollToTopLink 
                   to="/contato"
                   className="border border-white/30 hover:bg-white/10 transition-colors px-8 py-3 rounded-lg font-medium"
                 >
                   Falar com Especialista
-                </Link>
+                </ScrollToTopLink>
               </div>
             </motion.div>
           </div>

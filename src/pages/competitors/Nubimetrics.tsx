@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import ComparisonHero from '@/components/ComparisonHero';
@@ -8,7 +7,7 @@ import Footer from '@/components/Footer';
 
 const nubimetricsData = {
   name: 'Nubimetrics',
-  logo: 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+  logo: '/lovable-uploads/7f13d4c3-d1e8-492d-9b58-eb29629044bd.png',
   description: 'Entenda por que a Anye supera a Nubimetrics em automação inteligente, insights acionáveis e integração completa para marketplaces.'
 };
 

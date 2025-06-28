@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -13,18 +12,34 @@ import Footer from '@/components/Footer';
 import CompetitorComparison from '@/components/CompetitorComparison';
 import Careers from '@/components/Careers';
 import BlogPreview from '@/components/BlogPreview';
+import { useScrollToAnchor } from '@/hooks/useScrollToAnchor';
 
 const Index = () => {
   const location = useLocation();
+  
+  // Use the custom hook for hash-based scrolling
+  useScrollToAnchor();
 
   useEffect(() => {
-    if (location.state?.scrollTo) {
-      const element = document.getElementById(location.state.scrollTo);
+    const scrollToElement = (elementId: string) => {
+      const element = document.getElementById(elementId);
       if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+        // Add offset for navbar height
+        const navbarHeight = 80;
+        const elementPosition = element.offsetTop - navbarHeight;
+        
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
       }
+    };
+
+    // Handle scroll to anchor from navigation state
+    if (location.state?.scrollTo) {
+      setTimeout(() => {
+        scrollToElement(location.state.scrollTo);
+      }, 100);
     }
   }, [location.state]);
 
@@ -40,9 +55,7 @@ const Index = () => {
         <div id="compare">
           <CompetitorComparison />
         </div>
-        <div id="pricing">
-          <PricingPlans />
-        </div>
+        <PricingPlans />
         <Careers />
         <BlogPreview />
         <CTA />

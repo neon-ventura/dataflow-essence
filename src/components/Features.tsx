@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from './ui/ScrollToTopLink';
 import FeatureHeader from '@/components/features/FeatureHeader';
 import FeatureNavigation from '@/components/features/FeatureNavigation';
 import FeatureContent from '@/components/features/FeatureContent';
@@ -43,9 +42,9 @@ const Features = () => {
             asChild
             className="bg-gradient-to-r from-blue-600 to-purple-500 hover:opacity-90 text-white border-none h-12 px-8 text-base rounded-xl"
           >
-            <Link to="/contato">
+            <ScrollToTopLink to="/contato">
               Vamos começar? <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </ScrollToTopLink>
           </Button>
         </div>
 

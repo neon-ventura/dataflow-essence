@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, XCircle, LineChart } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from './ui/ScrollToTopLink';
 
 const competitors = [
   {
@@ -114,26 +114,26 @@ const CompetitorComparison = () => {
               </div>
               
               <div className="mt-auto">
-                <Link 
+                <ScrollToTopLink 
                   to={competitor.path}
                   className="flex items-center text-primary-blue hover:text-primary-light transition-colors"
                 >
                   <span>Ver comparativo completo</span>
                   <ArrowRight size={16} className="ml-1" />
-                </Link>
+                </ScrollToTopLink>
               </div>
             </motion.div>
           ))}
         </div>
         
         <div className="mt-10 text-center">
-          <Link 
+          <ScrollToTopLink 
             to="/comparisons"
             className="inline-flex items-center gap-2 text-primary-blue hover:text-primary-light transition-colors"
           >
             Ver todos os comparativos
             <ArrowRight size={16} />
-          </Link>
+          </ScrollToTopLink>
         </div>
       </div>
     </section>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import ComparisonHero from '@/components/ComparisonHero';
@@ -8,7 +7,7 @@ import Footer from '@/components/Footer';
 
 const avantProData = {
   name: 'Avant Pro',
-  logo: 'https://images.unsplash.com/photo-1490810194309-344b3661ba39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=120&q=80',
+  logo: '/lovable-uploads/a6a0c105-5b60-4b29-8594-ead1eb1e5048.png',
   description: 'Compare a Anye com a Avant Pro. Descubra como nossa plataforma oferece funcionalidades mais intuitivas, preços mais acessíveis e resultados superiores sem a complexidade desnecessária.'
 };
 

@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ScrollToTopLink } from './ui/ScrollToTopLink';
 
 const CTA = () => {
   return (
@@ -25,12 +24,17 @@ const CTA = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contato" className="btn-primary whitespace-nowrap flex items-center justify-center">
+              <a 
+                href="https://app.anye.com.br/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary whitespace-nowrap flex items-center justify-center"
+              >
                 Teste Grátis por 14 dias
-              </Link>
-              <Link to="/contato" className="btn-accent whitespace-nowrap flex items-center justify-center">
+              </a>
+              <ScrollToTopLink to="/contato" className="btn-accent whitespace-nowrap flex items-center justify-center">
                 Solicitar Demo <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </ScrollToTopLink>
             </div>
           </div>
         </div>
