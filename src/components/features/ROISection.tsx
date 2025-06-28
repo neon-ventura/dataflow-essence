@@ -130,7 +130,7 @@ const ROISection = () => {
             asChild
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
           >
-            <Link to="/#pricing">
+            <Link to="https://www.anye.com.br/#pricing">
               Ver Planos e Economizar
             </Link>
           </Button>
