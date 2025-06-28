@@ -1,22 +1,31 @@
 import React, { useState } from 'react';
 import { ChevronRight, ArrowRight, MousePointer, BarChart4, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const brandLogos = [{
-    name: 'Calpen',
-    src: '/lovable-uploads/e6dceda1-1780-44b8-a826-b8e66cf82333.png'
-  }, {
-    name: 'Xtexx',
-    src: '/lovable-uploads/88682ff4-e8fc-4d88-8efa-ab48dd004f9f.png'
-  }, {
-    name: 'Wietech',
-    src: '/lovable-uploads/69bd3c08-95ca-4053-835c-c61078c69221.png'
-  }, {
-    name: 'Riffel',
-    src: '/lovable-uploads/8c9a03eb-0345-45d6-b91d-a2bb062b3304.png'
-  }];
-  return <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
+  
+  const brandLogos = [
+    {
+      name: 'Calpen',
+      src: '/lovable-uploads/e6dceda1-1780-44b8-a826-b8e66cf82333.png'
+    },
+    {
+      name: 'Xtexx', 
+      src: '/lovable-uploads/88682ff4-e8fc-4d88-8efa-ab48dd004f9f.png'
+    },
+    {
+      name: 'Wietech',
+      src: '/lovable-uploads/69bd3c08-95ca-4053-835c-c61078c69221.png'
+    },
+    {
+      name: 'Riffel',
+      src: '/lovable-uploads/8c9a03eb-0345-45d6-b91d-a2bb062b3304.png'
+    }
+  ];
+
+  return (
+    <section className="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(26,115,232,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(26,115,232,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         
@@ -102,33 +111,40 @@ const Hero = () => {
             duration: 0.6,
             delay: 0.6
           }} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 pt-4">
-              <motion.a href="#signup" className="group relative overflow-hidden rounded-lg flex items-center gap-2 px-6 py-3 w-full sm:w-auto bg-primary-blue text-white font-medium transition-colors duration-200 hover:bg-primary-blue/90 focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)} whileHover={{
-              scale: 1.03
-            }} whileTap={{
-              scale: 0.97
-            }}>
+              <motion.a 
+                href="https://app.anye.com.br/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden rounded-lg flex items-center gap-2 px-6 py-3 w-full sm:w-auto bg-primary-blue text-white font-medium transition-colors duration-200 hover:bg-primary-blue/90 focus-visible:ring-2 focus-visible:ring-primary-blue focus-visible:ring-offset-2"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
                 <span className="flex items-center justify-center gap-2">
                   <span>Começar Grátis</span>
-                  <motion.div animate={{
-                  x: isHovered ? 5 : 0
-                }} transition={{
-                  duration: 0.2
-                }}>
+                  <motion.div 
+                    animate={{ x: isHovered ? 5 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
                     <ChevronRight className="inline-block h-4 w-4" />
                   </motion.div>
                 </span>
               </motion.a>
               
-              <motion.a href="#demo" className="group flex items-center gap-2 py-3 text-primary-blue transition-colors hover:text-primary-light w-full sm:w-auto justify-center sm:justify-start" whileHover={{
-              scale: 1.03
-            }} whileTap={{
-              scale: 0.97
-            }}>
-                <motion.span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-blue/10 group-hover:bg-primary-blue/20 transition-colors" whileHover={{
-                rotate: 360
-              }} transition={{
-                duration: 0.5
-              }}>
+              <motion.a 
+                href="https://youtube.com.br" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 py-3 text-primary-blue transition-colors hover:text-primary-light w-full sm:w-auto justify-center sm:justify-start"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                <motion.span 
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-blue/10 group-hover:bg-primary-blue/20 transition-colors"
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.5 }}
+                >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 5V19L19 12L8 5Z" fill="currentColor" />
                   </svg>
@@ -197,6 +213,8 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

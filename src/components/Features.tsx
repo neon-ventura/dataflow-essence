@@ -40,9 +40,12 @@ const Features = () => {
         {/* Start CTA */}
         <div className="flex justify-center mt-16 mb-20">
           <Button 
+            asChild
             className="bg-gradient-to-r from-blue-600 to-purple-500 hover:opacity-90 text-white border-none h-12 px-8 text-base rounded-xl"
           >
-            Vamos começar? <ArrowRight className="ml-2 h-4 w-4" />
+            <Link to="/contato">
+              Vamos começar? <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
         </div>
 
